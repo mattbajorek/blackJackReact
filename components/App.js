@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Table from './Table';
 import '../scss/reset.css';
 import '../scss/App.scss';
+import Table from './Table';
 
 class App extends Component {
 
