@@ -16,8 +16,8 @@ module.exports = {
     "plugins": [
         "react"
     ],
-    /*"rules": {
-        "indent": [
+    "rules": {
+        /*"indent": [
             "error",
             2
         ],
@@ -32,6 +32,7 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
-    }*/
+        ],*/
+        "no-unused-vars": "off"
+    }
 };
