@@ -3,7 +3,7 @@
 }
 
 html, body, #app {
-	position: fixed;
+	/*position: fixed;*/
 	width: 100%;
 	height: 100%;
 	padding: 0;
@@ -43,11 +43,7 @@ button {
 }
 
 button:hover, button:active, button:focus {
-	background: #f00;
-	box-shadow: inset 0 0 5px #000, 0 0 5px #000;
+	/*background: #f00;
+	box-shadow: inset 0 0 5px #000, 0 0 5px #000;*/
 	outline: none;
-}
-
-button:focus {
-	background: #f6b859;
 }

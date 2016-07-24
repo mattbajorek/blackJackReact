@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../scss/Table.scss';
-import Intro from './Intro.js'
+import Intro from './Intro.js';
+import { connect } from 'react-redux';
 
 class Table extends Component {
 
@@ -9,11 +10,15 @@ class Table extends Component {
 			<div className="wrapper">
 				<div className="green-table"></div>
 				<div className="wood-trim"></div>
-				<Intro />
+				<Intro dispatch={this.props.dispatch} focus={this.props.focus} />
 			</div>
 		)
 	}
 	
 }
 
-export default Table;
+function mapStateToProps(state) {
+	return state;
+}
+
+export default connect(mapStateToProps)(Table);
