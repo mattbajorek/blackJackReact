@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../scss/Intro.scss';
 import MoneySelection from './MoneySelection.js';
+import actions from '../redux/actions';
 
 const name = ['hundred','thousand','million'];
 const num = ['500','5000','50000'];
@@ -10,7 +11,7 @@ class Intro extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		if (this.props.focus !== 0) {
-			console.log("Selected");
+			this.props.dispatch(actions.play());
 		}
 	} 
 

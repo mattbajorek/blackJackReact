@@ -6,13 +6,23 @@ import { connect } from 'react-redux';
 class Table extends Component {
 
 	render() {
-		return (
-			<div className="wrapper">
-				<div className="green-table"></div>
-				<div className="wood-trim"></div>
-				<Intro dispatch={this.props.dispatch} focus={this.props.focus} />
-			</div>
-		)
+		if (this.props.play === true && this.props.focus !== 0) {
+			return (
+				<div className="wrapper">
+					<div className="green-table"></div>
+					<div className="wood-trim"></div>
+				</div>
+			);
+		} else {
+			return (
+				<div className="wrapper">
+					<div className="green-table"></div>
+					<div className="wood-trim"></div>
+					<Intro dispatch={this.props.dispatch} focus={this.props.focus} />
+				</div>
+			);
+		}
+		
 	}
 	
 }

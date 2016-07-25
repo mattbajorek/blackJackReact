@@ -5,8 +5,9 @@ import configureStore from '../redux/store';
 import { Provider } from 'react-redux';
 
 let initialState = {
-	focus: 0
-}
+	focus: 0,
+	play: false
+};
 
 let store = configureStore(initialState);
 
