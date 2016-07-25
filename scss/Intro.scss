@@ -21,3 +21,9 @@ h4 {
 	position: relative;
 	display: block;
 }
+
+.play:hover, .play:active, .play:focus {
+	background: #f00;
+	box-shadow: inset 0 0 5px #000, 0 0 5px #000;
+	outline: none;
+}

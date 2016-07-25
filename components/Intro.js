@@ -8,16 +8,26 @@ const num = ['500','5000','50000'];
 
 class Intro extends Component {
 
+	constructor() {
+    super();
+    this.state = {
+      playFocus: false
+    };
+  }
+
 	handleSubmit(e) {
 		e.preventDefault();
+		this.setState({playFocus: true})
 		if (this.props.focus !== 0) {
 			this.props.dispatch(actions.play());
 		}
-	} 
+	}
 
 	render() {
+
 		let dispatch = this.props.dispatch;
 		let focus = this.props.focus;
+
 		return (
 			<div className="intro">
 				<h1><span style={{color: 'red'}}>&hearts;</span>BL<span style={{color: 'black'}}>&spades;</span>CK<span style={{color: 'red'}}>&hearts;</span></h1>
@@ -29,11 +39,13 @@ class Intro extends Component {
 					})}
 				</div>
 				<button className="play" onClick={this.handleSubmit.bind(this)}>Play</button>
-				<h4 className="intro-error"></h4>
+				{ this.state.playFocus === true && this.props.focus === 0 ? 
+					<h4 className="intro-error">Please select an amount</h4> : null }
 			</div>
 		)
+
 	}
-	
+		
 }
 
 export default Intro
