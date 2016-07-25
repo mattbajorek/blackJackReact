@@ -6,7 +6,8 @@ import { Provider } from 'react-redux';
 
 let initialState = {
 	focus: 0,
-	play: false
+	play: false,
+	color: null,
 };
 
 let store = configureStore(initialState);
