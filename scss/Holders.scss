@@ -1,0 +1,9 @@
+$fraction: 2/3;
+
+.holder {
+	position: relative;
+	width: 415px * $fraction; /*415px*/
+	height: 365px * $fraction; /*365px*/
+	padding: 0;
+	margin: 0 auto;
+}

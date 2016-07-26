@@ -1,0 +1,9 @@
+$fraction: 2/3;
+
+.holder-chips {
+	position: absolute;
+	height: 775px * $fraction; /*155 px vertical*/
+	width: 155px * $fraction; /*(155*5) px horizontal*/
+	top: 0; 
+	left: 0;
+}
