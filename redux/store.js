@@ -11,6 +11,7 @@ let initialState = {
 	focus: 0,
 	play: false,
 	color: null,
+	value: null
 };
 
 export default function configureStore(initialState = initialState) { // ES6 syntax for or

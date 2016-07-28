@@ -10,10 +10,11 @@ export default {
 			type: 'PLAY'
 		}
 	},
-	bet: function(color) {
+	bet: function(obj) {
 		return {
 			type: 'BET',
-			src: color
+			src: obj.color,
+			chipValue: obj.value
 		}
 	}
 };

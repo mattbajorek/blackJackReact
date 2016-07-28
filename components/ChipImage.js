@@ -5,7 +5,12 @@ class ChipImage extends Component {
 
 	render() {
 
-		return <img key={this.props.key} src={this.props.color} />
+		return (
+			<div className="chip-image">
+				<img key={this.props.key} src={this.props.color} />
+				<h3>${this.props.value}</h3>
+			</div>
+		)
 
 	}
 	

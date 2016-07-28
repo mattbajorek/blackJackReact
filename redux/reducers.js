@@ -27,7 +27,8 @@ export default function reducer(state, action) {
 
 		case 'BET':
 			return Object.assign({}, state, {
-				color: action.src
+				color: action.src,
+				value: action.chipValue
 			});
 
 		default:

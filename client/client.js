@@ -8,6 +8,7 @@ let initialState = {
 	focus: 0,
 	play: false,
 	color: null,
+	value: null
 };
 
 let store = configureStore(initialState);

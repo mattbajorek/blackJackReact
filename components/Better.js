@@ -13,7 +13,7 @@ class Better extends Component {
 					<h3>Click on chips to place bet</h3>
 					{this.props.color !== null ? 
 					<div className="chip-absolute animation-chip">
-						<ChipImage color={this.props.color} />
+						<ChipImage color={this.props.color} value={this.props.value} />
 					</div> : null}
 				</div>
 			</div>

@@ -12,7 +12,7 @@ class Holders extends Component {
 		return (
 			<div>
 				<Dealer dispatch={this.props.dispatch} />
-				<Better dispatch={this.props.dispatch} color={this.props.color} />
+				<Better dispatch={this.props.dispatch} color={this.props.color} value={this.props.value} />
 				<Player dispatch={this.props.dispatch} />
 				<Chips dispatch={this.props.dispatch} focus={this.props.focus} />
 			</div>
