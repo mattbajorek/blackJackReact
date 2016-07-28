@@ -6,10 +6,14 @@ import actions from '../redux/actions';
 class Chip extends Component {
 
 	handleClick(e) {
+		this.props.dispatch(actions.animate());
 		this.props.dispatch(actions.bet({
 			color: this.props.color,
 			value: this.props.value
 		}));
+		setTimeout(function() {
+			this.props.dispatch(actions.animate())
+		}.bind(this), 500);
 	}
 
 	render() {

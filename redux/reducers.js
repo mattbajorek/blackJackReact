@@ -31,6 +31,11 @@ export default function reducer(state, action) {
 				value: action.chipValue
 			});
 
+		case 'ANIMATE':
+			return Object.assign({}, state, {
+				animate: !state.animate
+			});
+
 		default:
 			return state;
 	}

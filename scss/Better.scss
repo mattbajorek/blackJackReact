@@ -9,7 +9,7 @@ $fraction: 2/3;
 
 .chip-absolute {
 	position: absolute;
-	bottom: -500%; /*-500%;*/
+	bottom: 0; /*-500%;*/
 	height: 155px * $fraction;
 	width: 155px * $fraction;
 }
@@ -23,8 +23,12 @@ $fraction: 2/3;
 
 @keyframes moveUp {
   
+  from {
+    bottom: -75%;
+  }
+
   to {
-   bottom: 0;
+    bottom: 0;
   }
 
 }
@@ -35,10 +39,6 @@ $fraction: 2/3;
   animation-timing-function: ease-out; 
   animation-delay: 0s;
   animation-direction: normal; 
-}
-
-.chip-position-end {
-  bottom: 0;
 }
 
 /*---------------*/

@@ -16,5 +16,10 @@ export default {
 			src: obj.color,
 			chipValue: obj.value
 		}
+	},
+	animate: function() {
+		return {
+			type: 'ANIMATE'
+		}
 	}
 };
