@@ -10,11 +10,13 @@ let finalCreateStore = compose(
 let initialState = {
 	focus: 0,
 	play: false,
+	lastColor: null,
 	color: null,
+	lastValue: null,
 	value: null,
 	animate: false
 };
 
 export default function configureStore(initialState = initialState) { // ES6 syntax for or
-	return finalCreateStore(reducers, initialState); 
+	return createStore(reducers, initialState); 
 }

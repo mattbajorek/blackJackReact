@@ -11,7 +11,10 @@ class Better extends Component {
 			<div className="holder-better">
 				<div className="holder better">
 					<h3>Click on chips to place bet</h3>
-					{this.props.color === null ? null : <ChipBetter color={this.props.color} value={this.props.value} animate={this.props.animate} />}
+					{this.props.lastColor === null ? null :
+						<ChipBetter color={this.props.lastColor} value={this.props.lastValue} />}
+					{this.props.color === null ? null :
+						<ChipBetter color={this.props.color} value={this.props.value} animate={this.props.animate} />}
 				</div>
 			</div>
 		)
