@@ -22,7 +22,8 @@ class Holders extends Component {
 				<Chips
 					dispatch={this.props.dispatch}
 					total={this.props.total}
-					ratio={this.props.ratio} />
+					ratio={this.props.ratio}
+					amounts={this.props.amounts} />
 			</div>
 		)
 

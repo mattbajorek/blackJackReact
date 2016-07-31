@@ -9,7 +9,8 @@ class Chip extends Component {
 		this.props.dispatch(actions.animate());
 		this.props.dispatch(actions.bet({
 			color: this.props.color,
-			value: this.props.value
+			value: this.props.value,
+			index: this.props.index
 		}));
 		setTimeout(function() {
 			this.props.dispatch(actions.animate())
@@ -18,10 +19,12 @@ class Chip extends Component {
 
 	render() {
 
+		let amount = this.props.amounts[this.props.index];
+
 		return (
 			<div className="chip chip-relative" onClick={this.handleClick.bind(this)}>
-				<ChipImage key={this.props.key} color={this.props.color} value={this.props.value} />
-				<h3 className="amount">x{this.props.amount}</h3>
+				<ChipImage color={this.props.color} value={this.props.value} />
+				<h3 className="amount">x{amount}</h3>
 			</div>
 		)
 

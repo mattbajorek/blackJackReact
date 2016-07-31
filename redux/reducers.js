@@ -31,7 +31,12 @@ export default function reducer(state, action) {
 				lastChip: state.currentChip,
 				currentChip: action.currentChip,
 				total: state.total-action.currentChip.value,
-				bet: state.bet+action.currentChip.value
+				bet: state.bet+action.currentChip.value,
+				amounts: [
+					...state.amounts.slice(0, action.index),
+					state.amounts[action.index]-1,
+					...state.amounts.slice(action.index + 1)
+				]
 			});
 
 		case 'ANIMATE':

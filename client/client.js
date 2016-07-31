@@ -11,7 +11,8 @@ let initialState = {
 	lastChip: {},
 	currentChip: {},
 	animate: false,
-	bet: 0
+	bet: 0,
+	amounts: [25,15,5,5,5]
 };
 
 let store = configureStore(initialState);

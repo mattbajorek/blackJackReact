@@ -16,7 +16,8 @@ export default {
 			currentChip: {
 				color: obj.color,
 				value: obj.value
-			}
+			},
+			index: obj.index
 		}
 	},
 	animate: function() {
