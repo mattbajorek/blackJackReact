@@ -15,20 +15,22 @@ export default function reducer(state, action) {
 				}, ...state.todos] // ... adds rest of array
 			})
 			break;*/
-		case 'SELECT_NUM':
+		case 'TOTAL':
 			return Object.assign({}, state, {
-				focus: action.num
+				total: action.total
 			});
 
 		case 'PLAY':
 			return Object.assign({}, state, {
+				ratio: state.total/500,
 				play: !state.play
 			});
 
 		case 'BET':
 			return Object.assign({}, state, {
 				lastChip: state.currentChip,
-				currentChip: action.currentChip
+				currentChip: action.currentChip,
+				total: state.total-action.currentChip.value
 			});
 
 		case 'ANIMATE':

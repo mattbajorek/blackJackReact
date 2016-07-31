@@ -11,14 +11,15 @@ class Table extends Component {
 			<div className="wrapper">
 				<div className="green-table"></div>
 				<div className="wood-trim"></div>
-				{ this.props.play === true && this.props.focus !== 0 ? 
+				{ this.props.play === true && this.props.total !== null ? 
 					<Holders
 						dispatch={this.props.dispatch}
-						focus={this.props.focus}
+						total={this.props.total}
+						ratio={this.props.ratio}
 						lastChip={this.props.lastChip}
 						currentChip={this.props.currentChip}
 						animate={this.props.animate} /> :
-					<Intro dispatch={this.props.dispatch} focus={this.props.focus} play={this.props.play} /> }
+					<Intro dispatch={this.props.dispatch} total={this.props.total} play={this.props.play} /> }
 			</div>
 		);
 	}

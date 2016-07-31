@@ -19,14 +19,15 @@ class Chips extends Component {
 
 	render() {
 
-		let focus = Number(this.props.focus);
+		let total = this.props.total;
+		let ratio = this.props.ratio;
 		let dispatch = this.props.dispatch;
 
 		return (
 			<div className="holder-chips">
-				<h3 className="total">Total: {formatMoney(this.props.focus, "$", 0)}</h3>
+				<h3 className="total">Total: {formatMoney(this.props.total, "$", 0)}</h3>
 				{color.map(function(x,i) {
-					return <Chip key={i} dispatch={dispatch} color={x} value={value[i]*focus/500} amount={amount[i]} />;
+					return <Chip key={i} dispatch={dispatch} color={x} value={value[i]*ratio} amount={amount[i]} />;
 				})}
 			</div>
 		)

@@ -8,12 +8,12 @@ let finalCreateStore = compose(
 )(createStore);
 
 let initialState = {
-	focus: 0,
+	total: null,
 	play: false,
+	ratio: null,
 	lastChip: {},
 	currentChip: {},
 	animate: false,
-	total: null,
 	bet: null
 };
 

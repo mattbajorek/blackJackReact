@@ -4,7 +4,7 @@ import MoneySelection from './MoneySelection.js';
 import actions from '../redux/actions';
 
 const name = ['hundred','thousand','million'];
-const num = ['500','5000','50000'];
+const num = [500,5000,50000];
 
 class Intro extends Component {
 
@@ -18,7 +18,7 @@ class Intro extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		this.setState({playFocus: true})
-		if (this.props.focus !== 0) {
+		if (this.props.total !== 0) {
 			this.props.dispatch(actions.play());
 		}
 	}
@@ -26,7 +26,7 @@ class Intro extends Component {
 	render() {
 
 		let dispatch = this.props.dispatch;
-		let focus = this.props.focus;
+		let total = this.props.total;
 
 		return (
 			<div className="intro">
@@ -35,11 +35,11 @@ class Intro extends Component {
 				<h3>How big of a baller are you?</h3>
 				<div className="baller">
 					{num.map(function(x,i) {
-						return <MoneySelection key={i} name={name[i]} num={x} dispatch={dispatch} focus={focus} />;
+						return <MoneySelection key={i} name={name[i]} num={x} dispatch={dispatch} total={total} />;
 					})}
 				</div>
 				<button className="play" onClick={this.handleSubmit.bind(this)}>Play</button>
-				{ this.state.playFocus === true && this.props.focus === 0 ? 
+				{ this.state.playFocus === true && this.props.total === null ? 
 					<h4 className="intro-error">Please select an amount</h4> : null }
 			</div>
 		)

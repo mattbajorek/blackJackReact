@@ -1,8 +1,8 @@
 export default {
-	select: function(num) {
+	select: function(total) {
 		return { // Action creators
-			type: 'SELECT_NUM',
-			num: num
+			type: 'TOTAL',
+			total: total
 		}
 	},
 	play: function() {

@@ -5,12 +5,12 @@ import configureStore from '../redux/store';
 import { Provider } from 'react-redux';
 
 let initialState = {
-	focus: 0,
+	total: null,
 	play: false,
+	ratio: null,
 	lastChip: {},
 	currentChip: {},
 	animate: false,
-	total: null,
 	bet: null
 };
 

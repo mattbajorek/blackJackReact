@@ -12,7 +12,7 @@ class MoneySelection extends Component {
 	render() {
 		return (
 			<button
-				className={this.props.focus === this.props.num ? "button-selected":""}
+				className={this.props.total === this.props.num ? "button-selected":""}
 				num={this.props.num}
 				onClick={this.handleClick.bind(this)}>
 				{formatMoney(this.props.num, "$", 0)}

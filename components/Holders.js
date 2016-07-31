@@ -18,7 +18,10 @@ class Holders extends Component {
 					currentChip={this.props.currentChip}
 					animate={this.props.animate} />
 				<Player dispatch={this.props.dispatch} />
-				<Chips dispatch={this.props.dispatch} focus={this.props.focus} />
+				<Chips
+					dispatch={this.props.dispatch}
+					total={this.props.total}
+					ratio={this.props.ratio} />
 			</div>
 		)
 
