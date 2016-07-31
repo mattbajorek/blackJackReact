@@ -30,7 +30,8 @@ export default function reducer(state, action) {
 			return Object.assign({}, state, {
 				lastChip: state.currentChip,
 				currentChip: action.currentChip,
-				total: state.total-action.currentChip.value
+				total: state.total-action.currentChip.value,
+				bet: state.bet+action.currentChip.value
 			});
 
 		case 'ANIMATE':

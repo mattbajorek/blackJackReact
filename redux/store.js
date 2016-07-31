@@ -14,7 +14,7 @@ let initialState = {
 	lastChip: {},
 	currentChip: {},
 	animate: false,
-	bet: null
+	bet: 0
 };
 
 export default function configureStore(initialState = initialState) { // ES6 syntax for or

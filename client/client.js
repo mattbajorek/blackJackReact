@@ -11,7 +11,7 @@ let initialState = {
 	lastChip: {},
 	currentChip: {},
 	animate: false,
-	bet: null
+	bet: 0
 };
 
 let store = configureStore(initialState);

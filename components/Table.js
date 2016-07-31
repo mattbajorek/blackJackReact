@@ -18,7 +18,8 @@ class Table extends Component {
 						ratio={this.props.ratio}
 						lastChip={this.props.lastChip}
 						currentChip={this.props.currentChip}
-						animate={this.props.animate} /> :
+						animate={this.props.animate} 
+						bet={this.props.bet} /> :
 					<Intro dispatch={this.props.dispatch} total={this.props.total} play={this.props.play} /> }
 			</div>
 		);
