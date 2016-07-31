@@ -15,10 +15,8 @@ class Table extends Component {
 					<Holders
 						dispatch={this.props.dispatch}
 						focus={this.props.focus}
-						lastColor={this.props.lastColor}
-						color={this.props.color}
-						lastValue={this.props.lastValue}
-						value={this.props.value}
+						lastChip={this.props.lastChip}
+						currentChip={this.props.currentChip}
 						animate={this.props.animate} /> :
 					<Intro dispatch={this.props.dispatch} focus={this.props.focus} play={this.props.play} /> }
 			</div>

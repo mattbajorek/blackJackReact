@@ -13,8 +13,10 @@ export default {
 	bet: function(obj) {
 		return {
 			type: 'BET',
-			src: obj.color,
-			chipValue: obj.value
+			currentChip: {
+				color: obj.color,
+				value: obj.value
+			}
 		}
 	},
 	animate: function() {

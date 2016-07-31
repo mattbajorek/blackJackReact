@@ -7,11 +7,11 @@ import { Provider } from 'react-redux';
 let initialState = {
 	focus: 0,
 	play: false,
-	lastColor: null,
-	color: null,
-	lastValue: null,
-	value: null,
-	animate: false
+	lastChip: {},
+	currentChip: {},
+	animate: false,
+	total: null,
+	bet: null
 };
 
 let store = configureStore(initialState);

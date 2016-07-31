@@ -14,10 +14,8 @@ class Holders extends Component {
 				<Dealer dispatch={this.props.dispatch} />
 				<Better
 					dispatch={this.props.dispatch}
-					lastColor={this.props.lastColor}
-					color={this.props.color}
-					lastValue={this.props.lastValue}
-					value={this.props.value}
+					lastChip={this.props.lastChip}
+					currentChip={this.props.currentChip}
 					animate={this.props.animate} />
 				<Player dispatch={this.props.dispatch} />
 				<Chips dispatch={this.props.dispatch} focus={this.props.focus} />
