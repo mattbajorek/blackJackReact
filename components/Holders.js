@@ -23,7 +23,8 @@ class Holders extends Component {
 					dispatch={this.props.dispatch}
 					total={this.props.total}
 					ratio={this.props.ratio}
-					amounts={this.props.amounts} />
+					amounts={this.props.amounts}
+					animate={this.props.animate} />
 			</div>
 		)
 

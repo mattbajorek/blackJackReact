@@ -36,7 +36,13 @@ export default function reducer(state, action) {
 					...state.amounts.slice(0, action.index),
 					state.amounts[action.index]-1,
 					...state.amounts.slice(action.index + 1)
-				]
+				],
+				betAmounts: [
+					...state.betAmounts.slice(0, action.index),
+					state.betAmounts[action.index]+1,
+					...state.betAmounts.slice(action.index + 1)
+				],
+				animate: !state.animate
 			});
 
 		case 'ANIMATE':

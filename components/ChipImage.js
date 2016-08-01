@@ -7,8 +7,8 @@ class ChipImage extends Component {
 
 		return (
 			<div className="chip-image">
-				<img key={this.props.key} src={this.props.color} />
-				<h3>${this.props.value}</h3>
+				<img key={this.props.key} src={this.props.chip.color} />
+				<h3>${this.props.chip.value}</h3>
 			</div>
 		)
 

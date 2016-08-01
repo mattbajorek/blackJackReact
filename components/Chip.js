@@ -6,15 +6,14 @@ import actions from '../redux/actions';
 class Chip extends Component {
 
 	handleClick(e) {
-		this.props.dispatch(actions.animate());
-		this.props.dispatch(actions.bet({
-			color: this.props.color,
-			value: this.props.value,
-			index: this.props.index
-		}));
-		setTimeout(function() {
-			this.props.dispatch(actions.animate())
-		}.bind(this), 500);
+		let amount = this.props.amounts[this.props.index];
+		if (amount > 0 && this.props.animate === false) {
+			this.props.dispatch(actions.bet({
+				color: this.props.color,
+				value: this.props.value,
+				index: this.props.index
+			}));
+		}
 	}
 
 	render() {
@@ -23,7 +22,7 @@ class Chip extends Component {
 
 		return (
 			<div className="chip chip-relative" onClick={this.handleClick.bind(this)}>
-				<ChipImage color={this.props.color} value={this.props.value} />
+				<ChipImage chip={{color:this.props.color,value:this.props.value}} />
 				<h3 className="amount">x{amount}</h3>
 			</div>
 		)
