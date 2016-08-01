@@ -10,6 +10,7 @@ import C7 from './Cards/C7';
 import C8 from './Cards/C8';
 import C9 from './Cards/C9';
 import C10 from './Cards/C10';
+import J from './Cards/J';
 import actions from '../redux/actions';
 
 class Card extends Component {
@@ -48,6 +49,8 @@ class Card extends Component {
 							return <C9 symbol={symbol} />
 						case "10":
 							return <C10 symbol={symbol} />
+						case "J":
+							return <J symbol={symbol} />
 						default:
 							return null
 					}

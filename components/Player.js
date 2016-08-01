@@ -10,7 +10,7 @@ class Player extends Component {
 		return (
 			<div className="holder-positioner-player">
 				<div className="holder player">
-					<Card number="10" symbol="&spades;"/>
+					<Card number="J" symbol="&spades;"/>
 				</div>
 			</div>
 		)

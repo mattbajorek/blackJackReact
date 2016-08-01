@@ -11,6 +11,11 @@ $fraction: 2/3;
 	background: white;
 }
 
+.card img {
+	height: 236px * $fraction;
+	width: 146px * $fraction;
+}
+
 .number, .symbol {
 	font-size: 35px * $fraction;
 	font-family: Serif, "Times New Roman";
