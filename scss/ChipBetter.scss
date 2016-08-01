@@ -1,0 +1,23 @@
+/* Chip animation */
+
+@keyframes moveUp {
+  
+  from {
+    bottom: -65vh;
+  }
+
+  to {
+    bottom: 0;
+  }
+
+}
+
+.animation-chip {
+  animation-name: moveUp;
+  animation-duration: 0.5s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0s;
+  animation-direction: normal; 
+}
+
+/*---------------*/

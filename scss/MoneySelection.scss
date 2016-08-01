@@ -3,6 +3,12 @@
 	margin-right: 1%;
 }
 
+.selection:hover, .selection:active, .selection:focus {
+	background: #f6b859;
+	box-shadow: none;
+	outline: none;
+}
+
 .button-selected {
 	background: #f00;
 	box-shadow: inset 0 0 5px #000, 0 0 5px #000;

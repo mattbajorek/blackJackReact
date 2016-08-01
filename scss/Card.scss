@@ -1,0 +1,51 @@
+$fraction: 2/3;
+
+.card {
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: black solid 1px;
+	border-radius: 5%;
+	width: 250px * $fraction; /*250px*/
+	height: 350px * $fraction; /*350px*/
+	background: white;
+}
+
+.number, .symbol {
+	font-size: 35px * $fraction;
+	font-family: Serif, "Times New Roman";
+	text-align: center;
+	color: black;
+}
+
+.symbol {
+	font-size: 50px * $fraction;
+}
+
+.top-number, .top-symbol {
+	position: absolute;
+	top: 2.85714285714%; /*10px;*/
+	left: 2%; /*5px;*/
+}
+
+.bottom-number, .bottom-symbol {
+	position: absolute;
+	bottom: 2.85714285714%; /*10px vertical*/
+	right: 2%; /*5px;*/
+	-ms-transform: rotate(180deg); /* IE 9 */
+  -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
+}
+
+.top-symbol {
+	top: 11.4285714286%; /*40px vertical*/
+}
+
+.bottom-symbol {
+	bottom: 11.4285714286%; /*40px vertical*/
+}
+
+.center-symbol {
+	position: absolute;
+	font-size: 70px * $fraction;
+}
