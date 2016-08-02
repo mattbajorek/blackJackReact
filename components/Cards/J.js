@@ -17,8 +17,8 @@ class J extends Component {
 			{
 				top: '65.7142857143%',
 				left: '62%',
-				'-ms-transform': 'rotate(180deg)',
-				'-webkit-transform': 'rotate(180deg)',
+				'msTransform': 'rotate(180deg)',
+				'WebkitTransform': 'rotate(180deg)',
 				'transform': 'rotate(180deg)',
 			}
 		];
@@ -26,7 +26,23 @@ class J extends Component {
 		return (
 			<div>
 				<div style={center[0]} className="center-symbol">
-					<img src={require('../../images/spadeJ.png')} />
+
+					{(() => {
+						let url;
+						switch (symbol) {
+							case '\u2660':
+								url = 'spadeJ'; break;
+							case '\u2663':
+								url = 'clubJ'; break;
+							case '\u2665':
+								url = 'heartJ'; break;
+							case '\u2666':
+								url = 'diamondJ'; break;
+						}
+						console.log(url);
+						return <img src={require('../../images/'+ url + '.png')} />
+					})()}
+
 				</div>
 				<div style={center[1]} className="center-symbol">{symbol}</div>
 				<div style={center[2]} className="center-symbol">{symbol}</div>
