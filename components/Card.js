@@ -10,8 +10,9 @@ import C7 from './Cards/C7';
 import C8 from './Cards/C8';
 import C9 from './Cards/C9';
 import C10 from './Cards/C10';
-import J from './Cards/J';
+import Face from './Cards/Face';
 import actions from '../redux/actions';
+import selector from './Positions/symbol';
 
 class Card extends Component {
 
@@ -21,7 +22,7 @@ class Card extends Component {
 		let symbol = this.props.symbol;
 
 		return (
-			<div className="card">
+			<div className={"card " + selector(symbol)}>
 				<div className="number top-number">{number}</div>
 				<div className="symbol top-symbol">{symbol}</div>
 				<div className="number bottom-number">{number}</div>
@@ -50,7 +51,9 @@ class Card extends Component {
 						case "10":
 							return <C10 symbol={symbol} />
 						case "J":
-							return <J symbol={symbol} />
+						case "Q":
+						case "K":
+							return <Face symbol={symbol} number={number} />
 						default:
 							return null
 					}

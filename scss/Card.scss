@@ -17,24 +17,19 @@ $fraction: 2/3;
 }
 
 .number, .symbol {
+	position: absolute;
 	font-size: 35px * $fraction;
 	font-family: Serif, "Times New Roman";
 	text-align: center;
 	color: black;
 }
 
-.symbol {
-	font-size: 50px * $fraction;
-}
-
 .top-number, .top-symbol {
-	position: absolute;
 	top: 2.85714285714%; /*10px;*/
 	left: 2%; /*5px;*/
 }
 
 .bottom-number, .bottom-symbol {
-	position: absolute;
 	bottom: 2.85714285714%; /*10px vertical*/
 	right: 2%; /*5px;*/
 	-ms-transform: rotate(180deg); /* IE 9 */
@@ -50,7 +45,31 @@ $fraction: 2/3;
 	bottom: 11.4285714286%; /*40px vertical*/
 }
 
+.symbol {
+	font-size: 50px * $fraction;
+}
+
 .center-symbol {
 	position: absolute;
 	font-size: 70px * $fraction;
+}
+
+.heart *, .diamond * {
+	color: red;
+}
+
+.heart>.top-symbol, .heart>.bottom-symbol {
+	font-size: 45px * $fraction;
+}
+
+.club>.top-symbol, .club>.bottom-symbol {
+	font-size: 40px * $fraction;
+}
+
+.heart .center-symbol {
+	font-size: 65px * $fraction;
+}
+
+.club .center-symbol {
+	font-size: 60px * $fraction;
 }
