@@ -1,24 +1,9 @@
-import pos4 from './pos4';
+import pos1 from './pos1';
+import pos9and10 from './pos9and10';
 
-let pos9 = [
-	{
-		top: '28.5714285714%',
-		left: '22%'
-	},
-	{
-		top: '28.5714285714%',
-		left: '62%'
-	},
-	{
-		top: '51.4285714286%',
-		left: '22%'
-	},
-	{
-		top: '51.4285714286%',
-		left: '62%'
-	}
-];
+let pos9 = [];
 
-for (let i in pos4) pos9.push(pos4[i]);
+pos9.push(pos1[0]);
+for (let i in pos9and10) pos9.push(pos9and10[i]);
 
 module.exports = pos9
