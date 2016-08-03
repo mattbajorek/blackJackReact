@@ -3,6 +3,7 @@ import '../scss/Card.scss';
 import Ato10 from './Cards/Ato10';
 import Face from './Cards/Face';
 import actions from '../redux/actions';
+import posNum from './Positions/posNum';
 import selector from './Positions/symbol';
 
 class Card extends Component {
@@ -12,11 +13,21 @@ class Card extends Component {
 		let number = this.props.number;
 		let symbol = this.props.symbol;
 
+		// Fixes number positioning
+		let style = [];
+		if (number > 1 && number < 10) {
+			posNum(style,'4%');
+		} else if (number === '10') {
+			posNum(style,'0.8%');
+		} else if (number === 'J') {
+			posNum(style,'5.2%');
+		}
+
 		return (
 			<div className={"card " + selector(symbol)}>
-				<div className="number top-number">{number}</div>
+				<div className="number top-number" style={style[0]}>{number}</div>
 				<div className="symbol top-symbol">{symbol}</div>
-				<div className="number bottom-number">{number}</div>
+				<div className="number bottom-number" style={style[1]}>{number}</div>
 				<div className="symbol bottom-symbol">{symbol}</div>
 
 				{(() => {
