@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import '../scss/Buttons.scss';
-import actions from '../redux/actions';
+import './Buttons.scss';
 
 class Buttons extends Component {
 

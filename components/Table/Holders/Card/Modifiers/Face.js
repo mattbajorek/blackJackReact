@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import center from '../Positions/posFace';
-import selector from '../Positions/symbol';
+import center from './Positions/posFace';
+import selector from './Positions/symbol';
 
 class J extends Component {
 
@@ -15,7 +15,7 @@ class J extends Component {
 			<div>
 				{center.map(function(x,i) {
 					var insert;
-					if (i === 0) insert = <img src={require('../../images/'+ selector(symbol) + number + '.png')} />
+					if (i === 0) insert = <img src={require('../../../../../images/'+ selector(symbol) + number + '.png')} />
 					else insert = symbol
 					return <div key={i} style={x} className="center-symbol">{insert}</div>;
 				})}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../scss/Intro.scss';
+import './Intro.scss';
 import MoneySelection from './MoneySelection.js';
-import actions from '../redux/actions';
+import actions from '../../../redux/actions';
 
 const name = ['hundred','thousand','million'];
 const num = [500,5000,50000];

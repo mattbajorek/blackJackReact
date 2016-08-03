@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { formatMoney } from 'accounting';
-import '../scss/MoneySelection.scss';
-import actions from '../redux/actions';
+import './MoneySelection.scss';
+import actions from '../../../redux/actions';
 
 class MoneySelection extends Component {
   

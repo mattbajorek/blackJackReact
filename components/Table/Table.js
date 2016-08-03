@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../scss/Table.scss';
-import Intro from './Intro.js';
-import Holders from './Holders.js';
+import './Table.scss';
+import Intro from './Intro/Intro.js';
+import Holders from './Holders/Holders.js';
 import { connect } from 'react-redux';
 
 class Table extends Component {

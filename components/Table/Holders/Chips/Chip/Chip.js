@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../scss/Chip.scss';
+import './Chip.scss';
 import ChipImage from './ChipImage.js';
-import actions from '../redux/actions';
+import actions from '../../../../../redux/actions';
 
 class Chip extends Component {
 

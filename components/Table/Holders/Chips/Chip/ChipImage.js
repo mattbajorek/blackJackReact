@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../scss/ChipImage.scss';
+import './ChipImage.scss';
 
 class ChipImage extends Component {
 

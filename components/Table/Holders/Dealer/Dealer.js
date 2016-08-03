@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import '../scss/Dealer.scss';
-import actions from '../redux/actions';
+import './Dealer.scss';
 
 class Dealer extends Component {
 

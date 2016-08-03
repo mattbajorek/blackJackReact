@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { formatMoney } from 'accounting';
-import '../scss/Chips.scss';
-import Chip from './Chip.js';
+import './Chips.scss';
+import Chip from './Chip/Chip.js';
 
 let colors = ['white','red','blue','green','black'];
 let color = [];
 
 for (let i in colors) {
 	var img = document.createElement('img');
-	img.src = require('../images/'+ colors[i] + '.png');
+	img.src = require('../../../../images/'+ colors[i] + '.png');
 	color.push(img.src);
 }
 

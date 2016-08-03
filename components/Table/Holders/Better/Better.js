@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { formatMoney } from 'accounting';
-import '../scss/Better.scss';
+import './Better.scss';
 import ChipBetter from './ChipBetter.js';
 
 class Better extends Component {

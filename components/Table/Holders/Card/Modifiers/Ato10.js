@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import pos1 from '../Positions/pos1';
-import pos2 from '../Positions/pos2';
-import pos3 from '../Positions/pos3';
-import pos4 from '../Positions/pos4';
-import pos5 from '../Positions/pos5';
-import pos6 from '../Positions/pos6';
-import pos7 from '../Positions/pos7';
-import pos8 from '../Positions/pos8';
-import pos9 from '../Positions/pos9';
-import pos10 from '../Positions/pos10';
+import pos1 from './Positions/pos1';
+import pos2 from './Positions/pos2';
+import pos3 from './Positions/pos3';
+import pos4 from './Positions/pos4';
+import pos5 from './Positions/pos5';
+import pos6 from './Positions/pos6';
+import pos7 from './Positions/pos7';
+import pos8 from './Positions/pos8';
+import pos9 from './Positions/pos9';
+import pos10 from './Positions/pos10';
 
 class Ato10 extends Component {
 

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import '../scss/Card.scss';
-import Ato10 from './Cards/Ato10';
-import Face from './Cards/Face';
-import actions from '../redux/actions';
-import posNum from './Positions/posNum';
-import selector from './Positions/symbol';
+import './Card.scss';
+import Ato10 from './Modifiers/Ato10';
+import Face from './Modifiers/Face';
+import posNum from './Modifiers/Positions/posNum';
+import selector from './Modifiers/Positions/symbol';
 
 class Card extends Component {
 

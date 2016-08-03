@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import '../scss/ChipBetter.scss';
-import ChipImage from './ChipImage.js';
-import actions from '../redux/actions';
+import './ChipBetter.scss';
+import ChipImage from '../Chips/Chip/ChipImage.js';
+import actions from '../../../../redux/actions';
 
 class ChipBetter extends Component {
 

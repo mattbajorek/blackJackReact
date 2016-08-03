@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import '../scss/Player.scss';
-import Card from './Card.js';
-import actions from '../redux/actions';
+import './Player.scss';
+import Card from '../Card/Card.js';
 
 class Player extends Component {
 

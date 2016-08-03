@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import '../scss/Holders.scss';
-import Dealer from './Dealer.js';
-import Chips from './Chips.js';
-import Better from './Better.js';
-import Player from './Player.js';
-import Buttons from './Buttons.js';
+import './Holders.scss';
+import Dealer from './Dealer/Dealer.js';
+import Chips from './Chips/Chips.js';
+import Better from './Better/Better.js';
+import Player from './Player/Player.js';
+import Buttons from './Buttons/Buttons.js';
 
 class Holders extends Component {
 
