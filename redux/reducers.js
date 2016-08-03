@@ -4,6 +4,14 @@
 	}, -1) + 1;
 }*/
 
+function resetChips(state) {
+	return state.amounts.map((x,i) => x + state.betAmounts[i]);
+}
+
+function resetBet(state) {
+	return state.betAmounts.map(x => 0);
+}
+
 export default function reducer(state, action) {
 	switch (action.type) {
 		/*case 'SELECT_NUM':
@@ -54,14 +62,8 @@ export default function reducer(state, action) {
 			return Object.assign({}, state, {
 				total: state.total + state.bet,
 				bet: 0,
-				amounts: [
-					state.amounts[0] + state.betAmounts[0],
-					state.amounts[1] + state.betAmounts[1],
-					state.amounts[2] + state.betAmounts[2],
-					state.amounts[3] + state.betAmounts[3],
-					state.amounts[4] + state.betAmounts[4],
-				],
-				betAmounts: [0,0,0,0,0],
+				amounts: resetChips(state),
+				betAmounts: resetBet(state),
 				currentChip: {}
 			});
 

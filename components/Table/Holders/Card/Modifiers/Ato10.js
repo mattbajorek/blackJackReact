@@ -43,9 +43,7 @@ class Ato10 extends Component {
 
 		return (
 			<div>
-				{center.map(function(x,i) {
-					return <div key={i} style={x} className="center-symbol">{symbol}</div>;
-				})}
+				{center.map((x,i) => <div key={i} style={x} className="center-symbol">{symbol}</div>)}
 			</div>
 		)
 

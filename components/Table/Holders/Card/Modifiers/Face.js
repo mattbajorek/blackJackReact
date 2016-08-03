@@ -13,7 +13,7 @@ class Face extends Component {
 
 		return (
 			<div>
-				{center.map(function(x,i) {
+				{center.map((x,i) => {
 					var insert;
 					if (i === 0) insert = <img src={require('../../../../../images/'+ selector(symbol) + number + '.png')} />
 					else insert = symbol

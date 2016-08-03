@@ -15,7 +15,6 @@ class ChipBetter extends Component {
 	}
 
 	componentDidMount() {
-		console.log("RUNNING!");
 		if (this.props.toAnimate === 'chipAnimation') this.animation();
 	}
 
