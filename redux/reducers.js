@@ -30,8 +30,8 @@ export default function reducer(state, action) {
 			return Object.assign({}, state, {
 				lastChip: state.currentChip,
 				currentChip: action.currentChip,
-				total: state.total-action.currentChip.value,
-				bet: state.bet+action.currentChip.value,
+				total: state.total - action.currentChip.value,
+				bet: state.bet + action.currentChip.value,
 				amounts: [
 					...state.amounts.slice(0, action.index),
 					state.amounts[action.index]-1,
@@ -48,6 +48,21 @@ export default function reducer(state, action) {
 		case 'ANIMATE':
 			return Object.assign({}, state, {
 				animate: !state.animate
+			});
+
+		case 'CLEAR BET':
+			return Object.assign({}, state, {
+				total: state.total + state.bet,
+				bet: 0,
+				amounts: [
+					state.amounts[0] + state.betAmounts[0],
+					state.amounts[1] + state.betAmounts[1],
+					state.amounts[2] + state.betAmounts[2],
+					state.amounts[3] + state.betAmounts[3],
+					state.amounts[4] + state.betAmounts[4],
+				],
+				betAmounts: [0,0,0,0,0],
+				currentChip: {}
 			});
 
 		default:

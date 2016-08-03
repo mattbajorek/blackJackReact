@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import center from './Positions/posFace';
 import selector from './Positions/symbol';
 
-class J extends Component {
+class Face extends Component {
 
 	render() {
 
@@ -26,4 +26,4 @@ class J extends Component {
 	
 }
 
-export default J
+export default Face

@@ -12,10 +12,10 @@ class Better extends Component {
 				<div className="holder better">
 					{Object.keys(this.props.currentChip).length === 0 ?
 						<h3>Click on chips to place bet</h3> : <h3>Bet: {formatMoney(this.props.bet, "$", 0)}</h3>}
-					{Object.keys(this.props.lastChip).length === 0 ? null :
+					{Object.keys(this.props.lastChip).length === 0 || this.props.bet === 0 ? null :
 						<ChipBetter chip={this.props.lastChip} />}
-					{Object.keys(this.props.currentChip).length === 0 ? null :
-						<ChipBetter chip={this.props.currentChip} dispatch={this.props.dispatch} animate={this.props.animate} toAnimate={'animation'} />}
+					{Object.keys(this.props.currentChip).length === 0 || this.props.bet === 0 ? null :
+						<ChipBetter chip={this.props.currentChip} dispatch={this.props.dispatch} animate={this.props.animate} toAnimate={'chipAnimation'} />}
 				</div>
 			</div>
 		)

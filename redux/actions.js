@@ -24,5 +24,10 @@ export default {
 		return {
 			type: 'ANIMATE'
 		}
+	},
+	clearBet: function() {
+		return {
+			type: 'CLEAR BET'
+		}
 	}
 };
