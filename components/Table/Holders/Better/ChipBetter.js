@@ -10,7 +10,7 @@ class ChipBetter extends Component {
 		let dispatch = this.props.dispatch;
 		let animatedChip = ReactDOM.findDOMNode(this.refs.chipAnimation);
 		animatedChip.addEventListener('webkitAnimationEnd', function() {
-			dispatch(actions.animate());
+			dispatch(actions.animateChip());
 		});
 	}
 

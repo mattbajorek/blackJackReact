@@ -1,16 +1,40 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './Card.scss';
 import Ato10 from './Modifiers/Ato10';
 import Face from './Modifiers/Face';
 import posNum from './Modifiers/Positions/posNum';
 import selector from './Modifiers/Positions/symbol';
+import actions from '../../../../redux/actions';
+import random from '../random.js';
 
 class Card extends Component {
 
+	constructor() {
+		super();
+		this.random = null;
+	}
+
+	animation() {
+		let dispatch = this.props.dispatch;
+		let animatedCard = ReactDOM.findDOMNode(this.refs.cardAnimation);
+		animatedCard.addEventListener('webkitAnimationEnd', function() {
+			dispatch(actions.addCard());
+		});
+	}
+
+	componentDidMount() {
+		this.animation();
+	}
+
+	componentWillMount() {
+		this.random = random();
+	}
+
 	render() {
 
-		let number = this.props.number;
-		let symbol = this.props.symbol;
+		let number = this.random.number;
+		let symbol = this.random.symbol;
 
 		// Fixes number positioning
 		let style = [];
@@ -23,7 +47,7 @@ class Card extends Component {
 		}
 
 		return (
-			<div className={"card " + selector(symbol)}>
+			<div ref="cardAnimation" className={"card animation-card " + selector(symbol)} style={this.props.style}>
 				<div className="number top-number" style={style[0]}>{number}</div>
 				<div className="symbol top-symbol">{symbol}</div>
 				<div className="number bottom-number" style={style[1]}>{number}</div>

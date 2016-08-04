@@ -20,7 +20,8 @@ class Table extends Component {
 						currentChip={this.props.currentChip}
 						animate={this.props.animate} 
 						bet={this.props.bet}
-						amounts={this.props.amounts} /> :
+						amounts={this.props.amounts}
+						cards={this.props.cards} /> :
 					<Intro dispatch={this.props.dispatch} total={this.props.total} play={this.props.play} /> }
 			</div>
 		);

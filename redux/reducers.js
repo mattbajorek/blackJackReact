@@ -53,7 +53,7 @@ export default function reducer(state, action) {
 				animate: !state.animate
 			});
 
-		case 'ANIMATE':
+		case 'ANIMATE CHIP':
 			return Object.assign({}, state, {
 				animate: !state.animate
 			});
@@ -65,6 +65,16 @@ export default function reducer(state, action) {
 				amounts: resetChips(state),
 				betAmounts: resetBet(state),
 				currentChip: {}
+			});
+
+		case 'PLACE BET':
+			return Object.assign({}, state, {
+				cards: 1
+			});
+
+		case 'ADD CARD':
+			return Object.assign({}, state, {
+				cards: state.cards + 1
 			});
 
 		default:

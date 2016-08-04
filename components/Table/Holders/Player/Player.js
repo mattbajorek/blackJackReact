@@ -6,10 +6,29 @@ class Player extends Component {
 
 	render() {
 
+		let dispatch = this.props.dispatch;
+		let cards = this.props.cards;
+		let style = [];
+
+		for (let i=0; i<cards; i++) {
+			style.push({left: (30*i) + 'px'});
+		}
+
 		return (
 			<div className="holder-positioner-player">
 				<div className="holder player">
-					<Card number="J" symbol="&spades;" />
+					{cards >= 1 ?
+						<Card
+							dispatch={dispatch}
+							number="J"
+							symbol="&spades;"
+							style={style[0]} /> : null}
+					{cards >= 2 ?
+						<Card
+							dispatch={dispatch}
+							number="J"
+							symbol="&spades;"
+							style={style[1]} /> : null}
 				</div>
 			</div>
 		)

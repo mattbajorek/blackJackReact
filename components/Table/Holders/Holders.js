@@ -12,7 +12,9 @@ class Holders extends Component {
 
 		return (
 			<div>
-				<Dealer dispatch={this.props.dispatch} />
+				<Dealer
+					dispatch={this.props.dispatch}
+					cards={this.props.cards} />
 				<Chips
 					dispatch={this.props.dispatch}
 					total={this.props.total}
@@ -25,7 +27,9 @@ class Holders extends Component {
 					currentChip={this.props.currentChip}
 					animate={this.props.animate}
 					bet={this.props.bet} />
-				<Player dispatch={this.props.dispatch} />
+				<Player
+					dispatch={this.props.dispatch}
+					cards={this.props.cards} />
 				<Buttons
 					dispatch={this.props.dispatch}
 					currentChip={this.props.currentChip}/>

@@ -20,14 +20,24 @@ export default {
 			index: obj.index
 		}
 	},
-	animate: function() {
+	animateChip: function() {
 		return {
-			type: 'ANIMATE'
+			type: 'ANIMATE CHIP'
 		}
 	},
 	clearBet: function() {
 		return {
 			type: 'CLEAR BET'
+		}
+	},
+	placeBet: function() {
+		return {
+			type: 'PLACE BET'
+		}
+	},
+	addCard: function() {
+		return {
+			type: 'ADD CARD'
 		}
 	}
 };

@@ -7,3 +7,27 @@ $fraction: 2/3;
 	padding: 0;
 	margin: 0 auto;
 }
+
+/* Card animation */
+
+@keyframes moveDown {
+  
+  from {
+    top: -65vh;
+  }
+
+  to {
+    top: 0;
+  }
+
+}
+
+.animation-card {
+  animation-name: moveDown;
+  animation-duration: 0.5s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0s;
+  animation-direction: normal; 
+}
+
+/*---------------*/
