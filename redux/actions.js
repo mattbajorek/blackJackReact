@@ -30,24 +30,27 @@ export default {
 			type: 'CLEAR BET'
 		}
 	},
-	placeBet: function() {
+	placeBet: function(card) {
 		return {
-			type: 'PLACE BET'
+			type: 'PLACE BET',
+			card: card
 		}
 	},
-	addPlayerCard: function() {
+	addPlayerCard: function(card) {
 		return {
-			type: 'ADD PLAYER CARD'
+			type: 'ADD PLAYER CARD',
+			card: card
 		}
 	},
-	addDealerCard: function() {
+	addDealerCard: function(card) {
 		return {
-			type: 'ADD DEALER CARD'
+			type: 'ADD DEALER CARD',
+			card: card
 		}
 	},
 	hitNstay: function() {
 		return {
 			type: 'HIT AND STAY'
 		}
-	},
+	}
 };

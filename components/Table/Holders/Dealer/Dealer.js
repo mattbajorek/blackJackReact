@@ -21,6 +21,7 @@ class Dealer extends Component {
 						return <Card
 							key={i}
 							dispatch={dispatch}
+							card={x}
 							style={style[i]} 
 							dealerCards={cards} />;
 					})}

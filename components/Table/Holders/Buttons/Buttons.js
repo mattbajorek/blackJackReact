@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './Buttons.scss';
+import random from '../random.js';
 import actions from '../../../../redux/actions';
 
 class Buttons extends Component {
 
 	handlePlaceClick(e) {
-		this.props.dispatch(actions.placeBet());
+		// Add random card to player array
+		this.props.dispatch(actions.placeBet(random()));
 	}
 
 	handleClearClick(e) {
@@ -13,7 +15,7 @@ class Buttons extends Component {
 	}
 
 	handleHitClick(e) {
-		this.props.dispatch(actions.addPlayerCard());
+		this.props.dispatch(actions.addPlayerCard(random()));
 	}
 
 	handleStayClick(e) {

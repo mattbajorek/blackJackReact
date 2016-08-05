@@ -15,34 +15,67 @@ class Card extends Component {
 		this.random = null;
 	}
 
+	bust(dispatch,playerCards) {
+		// Calculate sum
+		let sum = 0;
+		playerCards.map(x => {
+			switch(x.number) {
+				case 'A':
+					if (sum < 11) sum += 11
+					else sum += 1
+					break;
+				case 'J':
+				case 'Q':
+				case 'K':
+					sum += 10;
+					break;
+				default:
+					sum += Number(x.number);
+			}
+		});
+		// Logic for bust and blackjack
+		if (sum === 21) {
+			console.log('BLACKJACK!');
+			dispatch(actions.hitNstay());
+		} else if (sum > 21) {
+			console.log('BUST!');
+			dispatch(actions.hitNstay());
+		}		
+	}
+
+	deal(dispatch,playerCards,dealerCards) {
+		if (playerCards !== undefined) {
+			if (playerCards.length === 1) dispatch(actions.addPlayerCard(random()));
+			else if (playerCards.length === 2) dispatch(actions.addDealerCard(random()));
+		} else {
+			if (dealerCards.length === 1) dispatch(actions.addDealerCard(random()));
+			else if (dealerCards.length === 2) dispatch(actions.hitNstay());
+		}
+	}
+
 	animation() {
+		let bust = this.bust;
+		let deal = this.deal;
 		let dispatch = this.props.dispatch;
 		let playerCards = this.props.playerCards;
 		let dealerCards = this.props.dealerCards;
+		// Proceed to logic after each finishes
 		let animatedCard = ReactDOM.findDOMNode(this.refs.cardAnimation);
 		animatedCard.addEventListener('webkitAnimationEnd', function() {
-			if (playerCards !== undefined) {
-				if (playerCards.length === 1) dispatch(actions.addPlayerCard());
-				else if (playerCards.length === 2) dispatch(actions.addDealerCard());
-			} else {
-				if (dealerCards.length === 1) dispatch(actions.addDealerCard());
-				else if (dealerCards.length === 2) dispatch(actions.hitNstay());
-			}
+			if (playerCards !== undefined) bust(dispatch,playerCards,dealerCards);
+			deal(dispatch,playerCards,dealerCards);
 		});
 	}
 
 	componentDidMount() {
+		// Animate the card
 		this.animation();
-	}
-
-	componentWillMount() {
-		this.random = random();
 	}
 
 	render() {
 
-		let number = this.random.number;
-		let symbol = this.random.symbol;
+		let number = this.props.card.number;
+		let symbol = this.props.card.symbol;
 
 		// Fixes number positioning
 		let style = [];

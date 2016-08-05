@@ -69,17 +69,17 @@ export default function reducer(state, action) {
 
 		case 'PLACE BET':
 			return Object.assign({}, state, {
-				playerCards: [true]
+				playerCards: [action.card]
 			});
 
 		case 'ADD PLAYER CARD':
 			return Object.assign({}, state, {
-				playerCards: state.playerCards.concat(true)
+				playerCards: state.playerCards.concat(action.card)
 			});
 
 		case 'ADD DEALER CARD':
 			return Object.assign({}, state, {
-				dealerCards: state.dealerCards.concat(true)
+				dealerCards: state.dealerCards.concat(action.card)
 			});
 
 		case 'HIT AND STAY':

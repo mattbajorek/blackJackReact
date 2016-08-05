@@ -14,8 +14,6 @@ class Player extends Component {
 			style.push({left: (30*i) + 'px'});
 		}
 
-		console.log(cards);
-
 		return (
 			<div className="holder-positioner-player">
 				<div className="holder player">
@@ -23,6 +21,7 @@ class Player extends Component {
 						return <Card
 							key={i}
 							dispatch={dispatch}
+							card={x}
 							style={style[i]} 
 							playerCards={cards} />;
 					})}
