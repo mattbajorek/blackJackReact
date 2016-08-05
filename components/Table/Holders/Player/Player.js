@@ -20,14 +20,10 @@ class Player extends Component {
 					{cards >= 1 ?
 						<Card
 							dispatch={dispatch}
-							number="J"
-							symbol="&spades;"
 							style={style[0]} /> : null}
 					{cards >= 2 ?
 						<Card
 							dispatch={dispatch}
-							number="J"
-							symbol="&spades;"
 							style={style[1]} /> : null}
 				</div>
 			</div>

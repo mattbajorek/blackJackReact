@@ -32,7 +32,8 @@ class Holders extends Component {
 					cards={this.props.cards} />
 				<Buttons
 					dispatch={this.props.dispatch}
-					currentChip={this.props.currentChip}/>
+					currentChip={this.props.currentChip}
+					cards={this.props.cards} />
 			</div>
 		)
 
