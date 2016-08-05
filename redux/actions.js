@@ -36,21 +36,24 @@ export default {
 			card: card
 		}
 	},
-	addPlayerCard: function(card) {
+	addCard: function(user,card) {
 		return {
-			type: 'ADD PLAYER CARD',
+			type: 'ADD CARD',
+			user: user,
 			card: card
 		}
 	},
-	addDealerCard: function(card) {
+	hitNstay: function(result) {
 		return {
-			type: 'ADD DEALER CARD',
-			card: card
+			type: 'HIT AND STAY',
+			result: result
 		}
 	},
-	hitNstay: function() {
+	score: function(user,sum) {
 		return {
-			type: 'HIT AND STAY'
+			type: 'SCORE',
+			user: user,
+			sum: sum
 		}
 	}
 };

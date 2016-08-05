@@ -10,66 +10,90 @@ import random from '../random.js';
 
 class Card extends Component {
 
-	constructor() {
-		super();
-		this.random = null;
+	dealer(dispatch,dealerCards) {
+
 	}
 
-	bust(dispatch,playerCards) {
-		// Calculate sum
-		let sum = 0;
-		playerCards.map(x => {
-			switch(x.number) {
-				case 'A':
-					if (sum < 11) sum += 11
-					else sum += 1
-					break;
-				case 'J':
-				case 'Q':
-				case 'K':
-					sum += 10;
-					break;
-				default:
-					sum += Number(x.number);
-			}
-		});
+	result(dispatch,user,sum) {
 		// Logic for bust and blackjack
 		if (sum === 21) {
-			console.log('BLACKJACK!');
-			dispatch(actions.hitNstay());
+			console.log('BLACKJACK! for ' + user);
+			//dispatch(actions.hitNstay('blackjack'));
 		} else if (sum > 21) {
-			console.log('BUST!');
-			dispatch(actions.hitNstay());
+			console.log('BUST! for ' + user);
+			//dispatch(actions.hitNstay('bust'));
+		}
+	}
+
+	sum(dispatch,cards,result) {
+		// Check for both player and dealer	
+		for (let user in cards) {
+			if (cards[user] !== undefined) {
+				let sum = 0;
+				// Loop through each card
+				cards[user].map(x => {
+					switch(x.number) {
+						case 'A':
+							if (sum < 11) sum += 11
+							else sum += 1
+							break;
+						case 'J':
+						case 'Q':
+						case 'K':
+							sum += 10;
+							break;
+						default:
+							sum += Number(x.number);
+					}
+				});
+				// Update state of score
+				dispatch(actions.score(user, sum))
+				// Check for blackjack or bust
+				result(dispatch,user,sum);
+			}
 		}		
 	}
 
 	deal(dispatch,playerCards,dealerCards) {
+		// Check to see if it is a player card
 		if (playerCards !== undefined) {
-			if (playerCards.length === 1) dispatch(actions.addPlayerCard(random()));
-			else if (playerCards.length === 2) dispatch(actions.addDealerCard(random()));
+			// Add another player card
+			if (playerCards.length === 1) dispatch(actions.addCard('player',random()));
+			// Add another dealer card
+			else if (playerCards.length === 2) dispatch(actions.addCard('dealer',random()));
+		// Check to see if it is a dealer card
 		} else {
-			if (dealerCards.length === 1) dispatch(actions.addDealerCard(random()));
+			// Add another dealer card
+			if (dealerCards.length === 1) dispatch(actions.addCard('dealer',random()));
+			// Allow user to hit or stay
 			else if (dealerCards.length === 2) dispatch(actions.hitNstay());
 		}
 	}
 
-	animation() {
-		let bust = this.bust;
-		let deal = this.deal;
-		let dispatch = this.props.dispatch;
-		let playerCards = this.props.playerCards;
-		let dealerCards = this.props.dealerCards;
-		// Proceed to logic after each finishes
+	animation(that) {
+		// Get dom node of card
 		let animatedCard = ReactDOM.findDOMNode(this.refs.cardAnimation);
+		// Proceed to logic after each finishes animating
 		animatedCard.addEventListener('webkitAnimationEnd', function() {
-			if (playerCards !== undefined) bust(dispatch,playerCards,dealerCards);
-			deal(dispatch,playerCards,dealerCards);
+			that.deal(that.dispatch,that.playerCards,that.dealerCards);
+			that.sum(that.dispatch,{player: that.playerCards, dealer: that.dealerCards},that.result);
+			that.dealer(that.dispatch,that.dealerCards);
 		});
 	}
 
 	componentDidMount() {
+		// That object saves this
+		let that = {
+			deal: this.deal,
+			sum: this.sum,
+			result: this.result,
+			dealer: this.dealer,
+			dispatch: this.props.dispatch,
+			playerCards: this.props.playerCards,
+			dealerCards: this.props.dealerCards
+		}
 		// Animate the card
-		this.animation();
+		this.animation(that);
 	}
 
 	render() {

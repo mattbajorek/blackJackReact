@@ -72,15 +72,27 @@ export default function reducer(state, action) {
 				playerCards: [action.card]
 			});
 
-		case 'ADD PLAYER CARD':
-			return Object.assign({}, state, {
-				playerCards: state.playerCards.concat(action.card)
-			});
+		case 'ADD CARD':
+			if (action.user === 'player') {
+				return Object.assign({}, state, {
+					playerCards: state.playerCards.concat(action.card)
+				});
+			} else {
+				return Object.assign({}, state, {
+					dealerCards: state.dealerCards.concat(action.card)
+				});
+			}
 
-		case 'ADD DEALER CARD':
-			return Object.assign({}, state, {
-				dealerCards: state.dealerCards.concat(action.card)
-			});
+		case 'SCORE':
+			if (action.user === 'player') {
+				return Object.assign({}, state, {
+					playerScore: action.sum
+				});
+			} else {
+				return Object.assign({}, state, {
+					dealerScore: action.sum
+				});
+			}
 
 		case 'HIT AND STAY':
 			return Object.assign({}, state, {

@@ -15,11 +15,14 @@ class Buttons extends Component {
 	}
 
 	handleHitClick(e) {
-		this.props.dispatch(actions.addPlayerCard(random()));
+		this.props.dispatch(actions.addCard('player',random()));
 	}
 
 	handleStayClick(e) {
-		this.props.dispatch(actions.hitNstay())
+		let dispatch = this.props.dispatch;
+		let dealerScore = this.props.dealerScore;
+		// Remove hit and stay buttons
+		dispatch(actions.hitNstay('dealer'));
 	}
 
 	render() {

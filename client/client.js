@@ -16,7 +16,9 @@ let initialState = {
 	betAmounts: [0,0,0,0,0],
 	playerCards: [],
 	dealerCards: [],
-	hitNstay: false
+	hitNstay: false,
+	playerScore: null,
+	dealerScore: null
 };
 
 let store = configureStore(initialState);

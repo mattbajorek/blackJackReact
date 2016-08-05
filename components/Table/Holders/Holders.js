@@ -36,7 +36,8 @@ class Holders extends Component {
 					currentChip={this.props.currentChip}
 					playerCards={this.props.playerCards}
 					dealerCards={this.props.dealerCards}
-					hitNstay={this.props.hitNstay} />
+					hitNstay={this.props.hitNstay}
+					dealerScore={this.props.dealerScore} />
 			</div>
 		)
 
