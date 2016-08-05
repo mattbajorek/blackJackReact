@@ -7,7 +7,7 @@ class Player extends Component {
 	render() {
 
 		let dispatch = this.props.dispatch;
-		let cards = this.props.cards;
+		let cards = this.props.playerCards;
 		let style = [];
 
 		for (let i=0; i<cards; i++) {
@@ -20,11 +20,13 @@ class Player extends Component {
 					{cards >= 1 ?
 						<Card
 							dispatch={dispatch}
-							style={style[0]} /> : null}
+							style={style[0]} 
+							playerCards={cards} /> : null}
 					{cards >= 2 ?
 						<Card
 							dispatch={dispatch}
-							style={style[1]} /> : null}
+							style={style[1]}
+							playerCards={cards} /> : null}
 				</div>
 			</div>
 		)

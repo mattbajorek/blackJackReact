@@ -35,9 +35,19 @@ export default {
 			type: 'PLACE BET'
 		}
 	},
-	addCard: function() {
+	addPlayerCard: function() {
 		return {
-			type: 'ADD CARD'
+			type: 'ADD PLAYER CARD'
 		}
-	}
+	},
+	addDealerCard: function() {
+		return {
+			type: 'ADD DEALER CARD'
+		}
+	},
+	hitNstay: function() {
+		return {
+			type: 'HIT AND STAY'
+		}
+	},
 };

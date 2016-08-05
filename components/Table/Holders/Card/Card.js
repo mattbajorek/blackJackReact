@@ -17,9 +17,14 @@ class Card extends Component {
 
 	animation() {
 		let dispatch = this.props.dispatch;
+		let playerCards = this.props.playerCards;
+		let dealerCards = this.props.dealerCards;
 		let animatedCard = ReactDOM.findDOMNode(this.refs.cardAnimation);
 		animatedCard.addEventListener('webkitAnimationEnd', function() {
-			dispatch(actions.addCard());
+			if (playerCards === 1) dispatch(actions.addPlayerCard());
+			else if (playerCards === 2) dispatch(actions.addDealerCard());
+			else if (dealerCards === 1) dispatch(actions.addDealerCard());
+			else if (dealerCards === 2) dispatch(actions.hitNstay());
 		});
 	}
 

@@ -21,7 +21,9 @@ class Table extends Component {
 						animate={this.props.animate} 
 						bet={this.props.bet}
 						amounts={this.props.amounts}
-						cards={this.props.cards} /> :
+						playerCards={this.props.playerCards}
+						dealerCards={this.props.dealerCards}
+						hitNstay={this.props.hitNstay} /> :
 					<Intro dispatch={this.props.dispatch} total={this.props.total} play={this.props.play} /> }
 			</div>
 		);

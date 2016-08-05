@@ -9,7 +9,11 @@ class Face extends Component {
 		let symbol = this.props.symbol;
 		let number = this.props.number;
 		// Fixes club positioning issue
-		if (symbol === '\u2663') center[2]['top'] = '68.5714285714%';
+		if (symbol === '\u2663') {
+			center[2]['top'] = '68.5714285714%'
+		} else {
+			center[2]['top'] = '65.7142857143%'
+		}
 
 		return (
 			<div>

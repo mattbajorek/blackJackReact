@@ -7,7 +7,7 @@ class Dealer extends Component {
 	render() {
 
 		let dispatch = this.props.dispatch;
-		let cards = this.props.cards;
+		let cards = this.props.dealerCards;
 		let style = [];
 
 		for (let i=0; i<cards; i++) {
@@ -17,14 +17,16 @@ class Dealer extends Component {
 		return (
 			<div className="holder-positioner-dealer">
 				<div className="holder dealer">
-					{cards >= 3 ?
+					{cards >= 1 ?
 						<Card
 							dispatch={dispatch}
-							style={style[0]} /> : null}
-					{cards >= 4 ?
+							style={style[0]}
+							dealerCards={cards} /> : null}
+					{cards >= 2 ?
 						<Card
 							dispatch={dispatch}
-							style={style[1]} /> : null}
+							style={style[1]} 
+							dealerCards={cards} />: null}
 				</div>
 			</div>
 		)

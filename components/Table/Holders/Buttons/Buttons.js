@@ -17,26 +17,28 @@ class Buttons extends Component {
 	}
 
 	handleStayClick(e) {
-		//this.props.dispatch(actions.clearBet());
+		this.props.dispatch(actions.hitNstay())
 	}
 
 	render() {
 
 		let currentChip = this.props.currentChip;
-		let cards = this.props.cards;
+		let playerCards = this.props.playerCards;
+		let dealerCards = this.props.dealerCards;
+		let hitNstay = this.props.hitNstay;
 
 		return (
 			<div>
-			{Object.keys(currentChip).length === 0 || cards > 0 ? null:
+			{Object.keys(currentChip).length === 0 || playerCards > 0 ? null:
 				<div className="holder-buttons">
-					<button className="place-bet" onClick={this.handlePlaceClick.bind(this)}>Place Bet</button>
-					<button className="clear-bet" onClick={this.handleClearClick.bind(this)}>Clear Bet</button>
+					<button onClick={this.handlePlaceClick.bind(this)}>Place Bet</button>
+					<button onClick={this.handleClearClick.bind(this)}>Clear Bet</button>
 				</div>
 			}
-			{cards > 0 ?
+			{hitNstay === true ?
 				<div className="holder-buttons">
-					<button className="place-bet" onClick={this.handleHitClick.bind(this)}>Hit</button>
-					<button className="clear-bet" onClick={this.handleStayClick.bind(this)}>Stay</button>
+					<button onClick={this.handleHitClick.bind(this)}>Hit</button>
+					<button onClick={this.handleStayClick.bind(this)}>Stay</button>
 				</div> : null
 			}
 			</div>

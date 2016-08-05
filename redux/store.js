@@ -17,7 +17,9 @@ let initialState = {
 	bet: 0,
 	amounts: [25,15,5,5,5],
 	betAmounts: [0,0,0,0,0],
-	cards: 0
+	playerCards: 0,
+	dealerCards: 0,
+	hitNstay: false
 };
 
 export default function configureStore(initialState = initialState) { // ES6 syntax for or

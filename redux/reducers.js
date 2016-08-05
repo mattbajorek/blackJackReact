@@ -69,12 +69,22 @@ export default function reducer(state, action) {
 
 		case 'PLACE BET':
 			return Object.assign({}, state, {
-				cards: 1
+				playerCards: 1
 			});
 
-		case 'ADD CARD':
+		case 'ADD PLAYER CARD':
 			return Object.assign({}, state, {
-				cards: state.cards + 1
+				playerCards: state.playerCards + 1
+			});
+
+		case 'ADD DEALER CARD':
+			return Object.assign({}, state, {
+				dealerCards: state.dealerCards + 1
+			});
+
+		case 'HIT AND STAY':
+			return Object.assign({}, state, {
+				hitNstay: !state.hitNstay
 			});
 
 		default:
