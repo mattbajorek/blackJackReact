@@ -28,7 +28,7 @@ class Chips extends Component {
 		return (
 			<div className="holder-chips">
 				<h3 className="total">Total: {formatMoney(this.props.total, "$", 0)}</h3>
-				{color.map(function(x,i) {
+				{color.map((x,i) => {
 					return <Chip
 						key={i}
 						index={i}

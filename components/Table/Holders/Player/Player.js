@@ -10,23 +10,22 @@ class Player extends Component {
 		let cards = this.props.playerCards;
 		let style = [];
 
-		for (let i=0; i<cards; i++) {
+		for (let i in cards) {
 			style.push({left: (30*i) + 'px'});
 		}
+
+		console.log(cards);
 
 		return (
 			<div className="holder-positioner-player">
 				<div className="holder player">
-					{cards >= 1 ?
-						<Card
+					{cards.map((x,i) => {
+						return <Card
+							key={i}
 							dispatch={dispatch}
-							style={style[0]} 
-							playerCards={cards} /> : null}
-					{cards >= 2 ?
-						<Card
-							dispatch={dispatch}
-							style={style[1]}
-							playerCards={cards} /> : null}
+							style={style[i]} 
+							playerCards={cards} />;
+					})}
 				</div>
 			</div>
 		)
@@ -36,3 +35,14 @@ class Player extends Component {
 }
 
 export default Player
+
+/*{cards >= 1 ?
+						<Card
+							dispatch={dispatch}
+							style={style[0]} 
+							playerCards={cards} /> : null}
+					{cards >= 2 ?
+						<Card
+							dispatch={dispatch}
+							style={style[1]}
+							playerCards={cards} /> : null}*/

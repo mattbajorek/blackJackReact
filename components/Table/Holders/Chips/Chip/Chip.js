@@ -7,7 +7,7 @@ class Chip extends Component {
 
 	handleClick(e) {
 		let amount = this.props.amounts[this.props.index];
-		if (amount > 0 && this.props.animate === false && this.props.playerCards === 0) {
+		if (amount > 0 && this.props.animate === false && this.props.playerCards.length === 0) {
 			this.props.dispatch(actions.bet({
 				color: this.props.color,
 				value: this.props.value,

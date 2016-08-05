@@ -13,7 +13,7 @@ class Buttons extends Component {
 	}
 
 	handleHitClick(e) {
-		//this.props.dispatch(actions.placeBet());
+		this.props.dispatch(actions.addPlayerCard());
 	}
 
 	handleStayClick(e) {
@@ -29,7 +29,7 @@ class Buttons extends Component {
 
 		return (
 			<div>
-			{Object.keys(currentChip).length === 0 || playerCards > 0 ? null:
+			{Object.keys(currentChip).length === 0 || playerCards.length > 0 ? null:
 				<div className="holder-buttons">
 					<button onClick={this.handlePlaceClick.bind(this)}>Place Bet</button>
 					<button onClick={this.handleClearClick.bind(this)}>Clear Bet</button>

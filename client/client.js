@@ -14,8 +14,8 @@ let initialState = {
 	bet: 0,
 	amounts: [25,15,5,5,5],
 	betAmounts: [0,0,0,0,0],
-	playerCards: 0,
-	dealerCards: 0,
+	playerCards: [],
+	dealerCards: [],
 	hitNstay: false
 };
 

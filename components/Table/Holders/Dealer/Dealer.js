@@ -10,23 +10,20 @@ class Dealer extends Component {
 		let cards = this.props.dealerCards;
 		let style = [];
 
-		for (let i=0; i<cards; i++) {
+		for (let i in cards) {
 			style.push({left: (30*i) + 'px'});
 		}
 
 		return (
 			<div className="holder-positioner-dealer">
 				<div className="holder dealer">
-					{cards >= 1 ?
-						<Card
+					{cards.map((x,i) => {
+						return <Card
+							key={i}
 							dispatch={dispatch}
-							style={style[0]}
-							dealerCards={cards} /> : null}
-					{cards >= 2 ?
-						<Card
-							dispatch={dispatch}
-							style={style[1]} 
-							dealerCards={cards} />: null}
+							style={style[i]} 
+							dealerCards={cards} />;
+					})}
 				</div>
 			</div>
 		)
