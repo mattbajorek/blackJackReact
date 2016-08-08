@@ -12,6 +12,13 @@ function resetBet(state) {
 	return state.betAmounts.map(x => 0);
 }
 
+function addChips(state, multiply) {
+	// If multiply
+	if (multiply !== undefined)	return state.amounts.map((x,i) => x + 2*state.betAmounts[i]*multiply);
+	// If no multiply
+	return state.amounts.map((x,i) => x + 2*state.betAmounts[i]);
+}
+
 export default function reducer(state, action) {
 	switch (action.type) {
 		/*case 'SELECT_NUM':
@@ -124,15 +131,31 @@ export default function reducer(state, action) {
 			});
 
 		case 'RESULT':
-			console.log(action.winner, action.multiply);
 			if (action.winner === 'dealer') {
 				// Clear bet, betAmounts, currentChip, dealer, dealerCards, dealerScore, playerCards, playerScore
 				return Object.assign({}, state, {
+					// Reset below
 					lastChip: {},
 					currentChip: {},
 					bet: 0,
-					amounts: resetChips(state),
 					betAmounts: resetBet(state),
+					playerCards: [],
+					dealerCards: [],
+					playerScore: null,
+					dealerScore: null,
+					dealer: false,
+					roundEnd: false
+				});
+			} else if (action.winner === 'player' && action.multiply !== undefined) {
+				return Object.assign({}, state, {
+					// Give user back winnings times multiply
+					total: state.total + 2*state.bet * action.multiply,
+					amounts: addChips(state, action.multiply),
+					betAmounts: resetBet(state),
+					// Reset below
+					lastChip: {},
+					currentChip: {},
+					bet: 0,
 					playerCards: [],
 					dealerCards: [],
 					playerScore: null,
@@ -142,7 +165,20 @@ export default function reducer(state, action) {
 				});
 			}
 			return Object.assign({}, state, {
-				roundEnd: state.roundEnd
+				// Give user back winnings
+				total: state.total + 2*state.bet,
+				amounts: addChips(state),
+				betAmounts: resetBet(state),
+				// Reset below
+				lastChip: {},
+				currentChip: {},
+				bet: 0,
+				playerCards: [],
+				dealerCards: [],
+				playerScore: null,
+				dealerScore: null,
+				dealer: false,
+				roundEnd: false
 			});
 
 		default:
