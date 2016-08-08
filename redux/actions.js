@@ -20,9 +20,9 @@ export default {
 			index: obj.index
 		}
 	},
-	animateChip: function() {
+	animateChipIn: function() {
 		return {
-			type: 'ANIMATE CHIP'
+			type: 'ANIMATE CHIP IN'
 		}
 	},
 	clearBet: function() {

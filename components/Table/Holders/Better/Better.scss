@@ -10,15 +10,3 @@ $fraction: 2/3;
   height: 20%;
   top: 35%;
 }
-
-.chip-absolute {
-	position: absolute;
-	bottom: 0; /*-500%;*/
-	height: 155px * $fraction;
-	width: 155px * $fraction;
-}
-
-.chip-absolute img {
-	height: 100%;
-	width: 100%;
-}

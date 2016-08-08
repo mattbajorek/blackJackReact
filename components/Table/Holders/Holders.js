@@ -28,7 +28,8 @@ class Holders extends Component {
 					lastChip={this.props.lastChip}
 					currentChip={this.props.currentChip}
 					animate={this.props.animate}
-					bet={this.props.bet} />
+					bet={this.props.bet}
+					winner={this.props.winner} />
 				<Player
 					dispatch={this.props.dispatch}
 					playerCards={this.props.playerCards} />

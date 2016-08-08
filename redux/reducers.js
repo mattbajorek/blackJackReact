@@ -14,9 +14,9 @@ function resetBet(state) {
 
 function addChips(state, multiply) {
 	// If multiply
-	if (multiply !== undefined)	return state.amounts.map((x,i) => x + 2*state.betAmounts[i]*multiply);
+	if (multiply !== undefined)	return state.amounts.map((x,i) => x + state.betAmounts[i]*multiply);
 	// If no multiply
-	return state.amounts.map((x,i) => x + 2*state.betAmounts[i]);
+	return state.amounts.map((x,i) => x + state.betAmounts[i]);
 }
 
 export default function reducer(state, action) {
@@ -60,7 +60,7 @@ export default function reducer(state, action) {
 				animate: !state.animate
 			});
 
-		case 'ANIMATE CHIP':
+		case 'ANIMATE CHIP IN':
 			return Object.assign({}, state, {
 				animate: !state.animate
 			});
@@ -127,7 +127,9 @@ export default function reducer(state, action) {
 
 		case 'ROUND END':
 			return Object.assign({}, state, {
-				roundEnd: !state.roundEnd
+				roundEnd: !state.roundEnd,
+				lastChip: {},
+				animate: !state.animate
 			});
 
 		case 'RESULT':
@@ -149,7 +151,7 @@ export default function reducer(state, action) {
 			} else if (action.winner === 'player' && action.multiply !== undefined) {
 				return Object.assign({}, state, {
 					// Give user back winnings times multiply
-					total: state.total + 2*state.bet * action.multiply,
+					total: state.total + state.bet * action.multiply,
 					amounts: addChips(state, action.multiply),
 					betAmounts: resetBet(state),
 					// Reset below
@@ -165,8 +167,8 @@ export default function reducer(state, action) {
 				});
 			}
 			return Object.assign({}, state, {
-				// Give user back winnings
-				total: state.total + 2*state.bet,
+				// Give user back bet
+				total: state.total + state.bet,
 				amounts: addChips(state),
 				betAmounts: resetBet(state),
 				// Reset below

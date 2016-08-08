@@ -8,9 +8,10 @@ class ChipBetter extends Component {
 
 	animation() {
 		let dispatch = this.props.dispatch;
+		let winner = this.props.winner;
 		let animatedChip = ReactDOM.findDOMNode(this.refs.chipAnimation);
 		animatedChip.addEventListener('webkitAnimationEnd', function() {
-			dispatch(actions.animateChip());
+			if (winner === null) dispatch(actions.animateChipIn());
 		});
 	}
 
@@ -20,8 +21,21 @@ class ChipBetter extends Component {
 
 	render() {
 
+		let className;
+		if (this.props.animate === true && this.props.winner === null) {
+			className = "chip-absolute animation-chip-in";
+		} else if (this.props.winner === 'player' || this.props.winner === 'tie') {
+			className = "chip-absolute-out animation-chip-player";
+		} else if (this.props.winner === 'dealer') {
+			className = "chip-absolute-out animation-chip-dealer";
+		} else {
+			className = "chip-absolute";
+		}
+
 		return (
-			<div ref={this.props.toAnimate} className={this.props.animate === true ? "chip-absolute animation-chip" : "chip-absolute"}>
+			<div
+				ref={this.props.toAnimate}
+				className={className}>
 				<ChipImage chip={this.props.chip} />
 			</div>
 		)

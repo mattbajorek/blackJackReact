@@ -15,7 +15,12 @@ class Better extends Component {
 					{Object.keys(this.props.lastChip).length === 0 || this.props.bet === 0 ? null :
 						<ChipBetter chip={this.props.lastChip} />}
 					{Object.keys(this.props.currentChip).length === 0 || this.props.bet === 0 ? null :
-						<ChipBetter chip={this.props.currentChip} dispatch={this.props.dispatch} animate={this.props.animate} toAnimate={'chipAnimation'} />}
+						<ChipBetter
+							chip={this.props.currentChip}
+							dispatch={this.props.dispatch}
+							animate={this.props.animate}
+							toAnimate={'chipAnimation'}
+							winner={this.props.winner} />}
 				</div>
 			</div>
 		)

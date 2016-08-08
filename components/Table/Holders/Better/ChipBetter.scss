@@ -1,6 +1,28 @@
-/* Chip animation */
+$fraction: 2/3;
 
-@keyframes moveUp {
+.chip-absolute {
+  position: absolute;
+  bottom: 0;
+  height: 155px * $fraction;
+  width: 155px * $fraction;
+}
+
+.chip-absolute img {
+  height: 100%;
+  width: 100%;
+}
+
+.chip-absolute-out {
+  position: absolute;
+  bottom: -65vh;
+  height: 155px * $fraction;
+  width: 155px * $fraction;
+  z-index: 2;
+}
+
+/* Chip animation in */
+
+@keyframes moveIn {
   
   from {
     bottom: -65vh;
@@ -12,10 +34,56 @@
 
 }
 
-.animation-chip {
-  animation-name: moveUp;
+.animation-chip-in {
+  animation-name: moveIn;
   animation-duration: 0.5s; 
   animation-timing-function: ease-out; 
+  animation-delay: 0s;
+  animation-direction: normal; 
+}
+
+/* Chip animation player */
+
+@keyframes movePlayer {
+  
+  from {
+    bottom: 0;
+  }
+
+  to {
+    bottom: -65vh;
+  }
+
+}
+
+.animation-chip-player {
+  animation-name: movePlayer;
+  animation-duration: 1s; 
+  animation-timing-function: ease-in; 
+  animation-delay: 0s;
+  animation-direction: normal; 
+}
+
+/*---------------*/
+
+/* Chip animation dealer */
+
+@keyframes moveDealer {
+  
+  from {
+    bottom: 0;
+  }
+
+  to {
+    bottom: 65vh;
+  }
+
+}
+
+.animation-chip-dealer {
+  animation-name: moveDealer;
+  animation-duration: 1s; 
+  animation-timing-function: ease-in; 
   animation-delay: 0s;
   animation-direction: normal; 
 }
