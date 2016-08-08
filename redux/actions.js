@@ -66,5 +66,12 @@ export default {
 		return {
 			type: 'ROUND END'
 		}
+	},
+	result: function(winner,multiply) {
+		return {
+			type: 'RESULT',
+			winner: winner,
+			multiply: multiply
+		}
 	}
 };

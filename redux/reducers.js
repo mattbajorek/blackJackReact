@@ -123,6 +123,28 @@ export default function reducer(state, action) {
 				roundEnd: !state.roundEnd
 			});
 
+		case 'RESULT':
+			console.log(action.winner, action.multiply);
+			if (action.winner === 'dealer') {
+				// Clear bet, betAmounts, currentChip, dealer, dealerCards, dealerScore, playerCards, playerScore
+				return Object.assign({}, state, {
+					lastChip: {},
+					currentChip: {},
+					bet: 0,
+					amounts: resetChips(state),
+					betAmounts: resetBet(state),
+					playerCards: [],
+					dealerCards: [],
+					playerScore: null,
+					dealerScore: null,
+					dealer: false,
+					roundEnd: false
+				});
+			}
+			return Object.assign({}, state, {
+				roundEnd: state.roundEnd
+			});
+
 		default:
 			return state;
 	}
