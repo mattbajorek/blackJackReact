@@ -14,7 +14,8 @@ class Holders extends Component {
 			<div>
 				<Dealer
 					dispatch={this.props.dispatch}
-					dealerCards={this.props.dealerCards} />
+					dealerCards={this.props.dealerCards}
+					dealer={this.props.dealer} />
 				<Chips
 					dispatch={this.props.dispatch}
 					total={this.props.total}

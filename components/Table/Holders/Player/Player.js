@@ -8,6 +8,7 @@ class Player extends Component {
 
 		let dispatch = this.props.dispatch;
 		let cards = this.props.playerCards;
+		let dealer = this.props.dealer;
 		let style = [];
 
 		for (let i in cards) {
@@ -23,7 +24,8 @@ class Player extends Component {
 							dispatch={dispatch}
 							card={x}
 							style={style[i]} 
-							playerCards={cards} />;
+							playerCards={cards}
+							dealer={dealer} />;
 					})}
 				</div>
 			</div>

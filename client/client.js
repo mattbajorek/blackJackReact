@@ -18,7 +18,9 @@ let initialState = {
 	dealerCards: [],
 	hitNstay: false,
 	playerScore: null,
-	dealerScore: null
+	dealerScore: null,
+	dealer: false,
+	roundEnd: false
 };
 
 let store = configureStore(initialState);

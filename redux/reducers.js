@@ -95,9 +95,28 @@ export default function reducer(state, action) {
 			}
 
 		case 'HIT AND STAY':
-			return Object.assign({}, state, {
-				hitNstay: !state.hitNstay
-			});
+			// If dealer make sure you turn dealer to true
+			if (action.user === 'dealer') {
+				// If dealer score is 16 or less, add another card
+				if (state.dealerScore < 17) {
+					return Object.assign({}, state, {
+						dealerCards: state.dealerCards.concat(action.card),
+						dealer: !state.dealer,
+						hitNstay: !state.hitNstay
+					});
+				// Else if the dealer is above 16, end round
+				} else {
+					return Object.assign({}, state, {
+						roundEnd: !state.roundEnd,
+						hitNstay: !state.hitNstay
+					});
+				}
+			// Else just toggle hit and stay buttons
+			} else {
+				return Object.assign({}, state, {
+					hitNstay: !state.hitNstay
+				});
+			}
 
 		default:
 			return state;

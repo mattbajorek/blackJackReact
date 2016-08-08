@@ -43,10 +43,11 @@ export default {
 			card: card
 		}
 	},
-	hitNstay: function(result) {
+	hitNstay: function(user,card) {
 		return {
 			type: 'HIT AND STAY',
-			result: result
+			user: user,
+			card: card
 		}
 	},
 	score: function(user,sum) {
@@ -54,6 +55,11 @@ export default {
 			type: 'SCORE',
 			user: user,
 			sum: sum
+		}
+	},
+	clearBet: function() {
+		return {
+			type: 'CLEAR BET'
 		}
 	}
 };

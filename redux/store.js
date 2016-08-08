@@ -21,7 +21,9 @@ let initialState = {
 	dealerCards: [],
 	hitNstay: false,
 	playerScore: null,
-	dealerScore: null
+	dealerScore: null,
+	dealer: false,
+	roundEnd: false
 };
 
 export default function configureStore(initialState = initialState) { // ES6 syntax for or

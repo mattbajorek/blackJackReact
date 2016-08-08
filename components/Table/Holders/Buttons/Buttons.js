@@ -21,8 +21,8 @@ class Buttons extends Component {
 	handleStayClick(e) {
 		let dispatch = this.props.dispatch;
 		let dealerScore = this.props.dealerScore;
-		// Remove hit and stay buttons
-		dispatch(actions.hitNstay('dealer'));
+		// Remove hit and stay buttons and add dealer card if less than 17
+		dispatch(actions.hitNstay('dealer',random()));
 	}
 
 	render() {

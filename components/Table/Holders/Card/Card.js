@@ -10,22 +10,53 @@ import random from '../random.js';
 
 class Card extends Component {
 
-	dealer(dispatch,dealerCards) {
-
+	componentDidMount() {
+		// Animate the card and pass in animation callback
+		this.animation(this.animationCallback.bind(this));
 	}
 
-	result(dispatch,user,sum) {
-		// Logic for bust and blackjack
-		if (sum === 21) {
-			console.log('BLACKJACK! for ' + user);
-			//dispatch(actions.hitNstay('blackjack'));
-		} else if (sum > 21) {
-			console.log('BUST! for ' + user);
-			//dispatch(actions.hitNstay('bust'));
+	animation(callback) {
+		// Get dom node of card
+		let animatedCard = ReactDOM.findDOMNode(this.refs.cardAnimation);
+		// After animation finishes go to callback logic
+		animatedCard.addEventListener('webkitAnimationEnd', callback) ;
+	}
+
+	animationCallback() {
+		let result = this.result;
+		let dispatch = this.props.dispatch;
+		let playerCards = this.props.playerCards;
+		let dealerCards = this.props.dealerCards;
+		let dealer = this.props.dealer;
+		// Deal out cards
+		this.deal(playerCards,dealerCards);
+		// Calculate sum and sends function results as a callback
+		let obj = {
+			player: playerCards,
+			dealer: dealerCards
+		}
+		this.sum(obj,this.result.bind(this));
+	}
+
+	deal(playerCards,dealerCards) {
+		let dispatch = this.props.dispatch;
+		// Check to see if it is a player card
+		if (playerCards !== undefined) {
+			// Add another player card
+			if (playerCards.length === 1) dispatch(actions.addCard('player',random()));
+			// Add another dealer card
+			else if (playerCards.length === 2) dispatch(actions.addCard('dealer',random()));
+		// Check to see if it is a dealer card
+		} else {
+			// Add another dealer card
+			if (dealerCards.length === 1) dispatch(actions.addCard('dealer',random()));
+			// Allow user to hit or stay
+			else if (dealerCards.length === 2) dispatch(actions.hitNstay());
 		}
 	}
 
-	sum(dispatch,cards,result) {
+	sum(cards,callback) {
+		let dispatch = this.props.dispatch;
 		// Check for both player and dealer	
 		for (let user in cards) {
 			if (cards[user] !== undefined) {
@@ -48,52 +79,32 @@ class Card extends Component {
 				});
 				// Update state of score
 				dispatch(actions.score(user, sum))
-				// Check for blackjack or bust
-				result(dispatch,user,sum);
+				// Get results
+				callback(user,sum);
 			}
 		}		
 	}
 
-	deal(dispatch,playerCards,dealerCards) {
-		// Check to see if it is a player card
-		if (playerCards !== undefined) {
-			// Add another player card
-			if (playerCards.length === 1) dispatch(actions.addCard('player',random()));
-			// Add another dealer card
-			else if (playerCards.length === 2) dispatch(actions.addCard('dealer',random()));
-		// Check to see if it is a dealer card
-		} else {
-			// Add another dealer card
-			if (dealerCards.length === 1) dispatch(actions.addCard('dealer',random()));
-			// Allow user to hit or stay
-			else if (dealerCards.length === 2) dispatch(actions.hitNstay());
+	result(user,sum) {
+		if (this.props.dealer === true) {
+			// Add another dealer card until dealer is over 17
+			if (sum < 17) this.props.dispatch(actions.addCard('dealer',random()));
+		}
+		
+		// Logic for bust and blackjack
+		if (sum === 21) {
+			console.log('BLACKJACK! for ' + user);
+			//dispatch(actions.hitNstay('blackjack'));
+		} else if (sum > 21) {
+			console.log('BUST! for ' + user);
+			//dispatch(actions.hitNstay('bust'));
 		}
 	}
 
-	animation(that) {
-		// Get dom node of card
-		let animatedCard = ReactDOM.findDOMNode(this.refs.cardAnimation);
-		// Proceed to logic after each finishes animating
-		animatedCard.addEventListener('webkitAnimationEnd', function() {
-			that.deal(that.dispatch,that.playerCards,that.dealerCards);
-			that.sum(that.dispatch,{player: that.playerCards, dealer: that.dealerCards},that.result);
-			that.dealer(that.dispatch,that.dealerCards);
-		});
-	}
-
-	componentDidMount() {
-		// That object saves this
-		let that = {
-			deal: this.deal,
-			sum: this.sum,
-			result: this.result,
-			dealer: this.dealer,
-			dispatch: this.props.dispatch,
-			playerCards: this.props.playerCards,
-			dealerCards: this.props.dealerCards
+	hitDealer(dispatch,dealerCards,dealer) {
+		if (dealer === true) {
+			
 		}
-		// Animate the card
-		this.animation(that);
 	}
 
 	render() {
