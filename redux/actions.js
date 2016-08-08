@@ -61,5 +61,10 @@ export default {
 		return {
 			type: 'CLEAR BET'
 		}
+	},
+	roundEnd: function() {
+		return {
+			type: 'ROUND END'
+		}
 	}
 };

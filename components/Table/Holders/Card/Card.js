@@ -86,24 +86,12 @@ class Card extends Component {
 	}
 
 	result(user,sum) {
+		// Check to see if dealer should hit again
 		if (this.props.dealer === true) {
 			// Add another dealer card until dealer is over 17
 			if (sum < 17) this.props.dispatch(actions.addCard('dealer',random()));
-		}
-		
-		// Logic for bust and blackjack
-		if (sum === 21) {
-			console.log('BLACKJACK! for ' + user);
-			//dispatch(actions.hitNstay('blackjack'));
-		} else if (sum > 21) {
-			console.log('BUST! for ' + user);
-			//dispatch(actions.hitNstay('bust'));
-		}
-	}
-
-	hitDealer(dispatch,dealerCards,dealer) {
-		if (dealer === true) {
-			
+			// Else end the round
+			else this.props.dispatch(actions.roundEnd());
 		}
 	}
 

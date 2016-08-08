@@ -118,6 +118,11 @@ export default function reducer(state, action) {
 				});
 			}
 
+		case 'ROUND END':
+			return Object.assign({}, state, {
+				roundEnd: !state.roundEnd
+			});
+
 		default:
 			return state;
 	}
