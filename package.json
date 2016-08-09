@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Black Jack written in React",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon server/server.js -i components -i redux"
+    "serve": "nodemon server/server.js -i components -i redux",
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
