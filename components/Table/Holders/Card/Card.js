@@ -104,7 +104,7 @@ class Card extends Component {
 			borderRadius: '5%'
 		}
 
-		if (this.props.index === 0 && this.props.roundEnd === false) {
+		if (this.props.index === 0 && this.props.showCard === false) {
 			return (
 				<div ref="cardAnimation" className={"card animation-card"} style={this.props.style}>
 					<img src={require('../../../../images/back.png')} style={backStyle} />

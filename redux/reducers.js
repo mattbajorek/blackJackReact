@@ -76,7 +76,8 @@ export default function reducer(state, action) {
 
 		case 'PLACE BET':
 			return Object.assign({}, state, {
-				playerCards: [action.card]
+				playerCards: [action.card],
+				lastChip: {}
 			});
 
 		case 'ADD CARD':
@@ -116,13 +117,15 @@ export default function reducer(state, action) {
 					return Object.assign({}, state, {
 						dealerCards: state.dealerCards.concat(action.card),
 						dealer: !state.dealer,
-						hitNstay: !state.hitNstay
+						hitNstay: !state.hitNstay,
+						showCard: !state.showCard
 					});
 				// Else if the dealer is above 16, end round
 				} else {
 					return Object.assign({}, state, {
 						roundEnd: !state.roundEnd,
-						hitNstay: !state.hitNstay
+						hitNstay: !state.hitNstay,
+						showCard: !showCard
 					});
 				}
 			// Else just toggle hit and stay buttons
@@ -136,9 +139,7 @@ export default function reducer(state, action) {
 
 		case 'ROUND END':
 			return Object.assign({}, state, {
-				roundEnd: !state.roundEnd,
-				lastChip: {},
-				animateCard: !state.animateCard
+				roundEnd: !state.roundEnd
 			});
 
 		case 'RESULT':
@@ -146,10 +147,10 @@ export default function reducer(state, action) {
 				// Clear bet, betAmounts, currentChip, dealer, dealerCards, dealerScore, playerCards, playerScore
 				return Object.assign({}, state, {
 					// Reset below
-					lastChip: {},
 					currentChip: {},
 					bet: 0,
 					betAmounts: resetBet(state),
+					showCard: false,
 					playerCards: [],
 					dealerCards: [],
 					playerScore: null,
@@ -165,7 +166,7 @@ export default function reducer(state, action) {
 					amounts: addChips(state, action.multiply),
 					betAmounts: resetBet(state),
 					// Reset below
-					lastChip: {},
+					showCard: false,
 					currentChip: {},
 					bet: 0,
 					playerCards: [],
@@ -183,7 +184,7 @@ export default function reducer(state, action) {
 				amounts: addChips(state),
 				betAmounts: resetBet(state),
 				// Reset below
-				lastChip: {},
+				showCard: false,
 				currentChip: {},
 				bet: 0,
 				playerCards: [],
@@ -198,8 +199,9 @@ export default function reducer(state, action) {
 		case 'MESSAGE':
 			return Object.assign({}, state, {
 				message: action.message,
-				// Animate offsets the animate from the chip animation
-				animateChip: !state.animateChip
+				// Animate offsets the animate from the chip and card animations
+				animateChip: !state.animateChip,
+				animateCard: !state.animateCard
 			});
 
 		default:

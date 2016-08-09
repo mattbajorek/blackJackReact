@@ -23,6 +23,7 @@ class Table extends Component {
 						animateChip={this.props.animateChip}
             animateCard={this.props.animateCard} 
 						bet={this.props.bet}
+						showCard={this.props.showCard}
 						amounts={this.props.amounts}
 						playerCards={this.props.playerCards}
 						dealerCards={this.props.dealerCards}
