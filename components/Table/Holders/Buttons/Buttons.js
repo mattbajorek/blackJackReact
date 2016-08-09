@@ -11,18 +11,22 @@ class Buttons extends Component {
 	}
 
 	handleClearClick(e) {
+		// Clear bet and return chips
 		this.props.dispatch(actions.clearBet());
 	}
 
 	handleHitClick(e) {
-		this.props.dispatch(actions.addCard('player',random()));
+		if (this.props.animateCard === false) {
+			let dispatch = this.props.dispatch;
+			if (this.props.playerScore < 22)
+				// Add random card to player array
+				dispatch(actions.addCard('player',random()));
+		}
 	}
 
 	handleStayClick(e) {
-		let dispatch = this.props.dispatch;
-		let dealerScore = this.props.dealerScore;
-		// Remove hit and stay buttons and add dealer card if less than 17
-		dispatch(actions.hitNstay('dealer',random()));
+		// Start the dealer card caluation but giving a random card that may or may not be used
+		this.props.dispatch(actions.hitNstay('dealer',random()));
 	}
 
 	render() {

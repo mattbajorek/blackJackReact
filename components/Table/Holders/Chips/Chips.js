@@ -22,7 +22,7 @@ class Chips extends Component {
 		let ratio = this.props.ratio;
 		let dispatch = this.props.dispatch;
 		let amounts = this.props.amounts;
-		let animate = this.props.animate;
+		let animateChip = this.props.animateChip;
 		let playerCards = this.props.playerCards;
 
 		return (
@@ -36,7 +36,7 @@ class Chips extends Component {
 						color={x}
 						value={value[i]*ratio}
 						amounts={amounts}
-						animate={animate}
+						animateChip={animateChip}
 						playerCards={playerCards} />;
 				})}
 			</div>

@@ -25,9 +25,12 @@ class Card extends Component {
 	}
 
 	animationCallback() {
+		let dispatch = this.props.dispatch
 		let playerCards = this.props.playerCards;
 		let dealerCards = this.props.dealerCards;
 		let results = this.props.results;
+		// Animate card in toggle
+		dispatch(actions.animateCardIn());
 		// Deal out cards
 		this.deal(playerCards,dealerCards);
 		// Calculate sum with imported sum function
@@ -36,9 +39,11 @@ class Card extends Component {
 		else obj.dealer = dealerCards;
 		// Dispatch results
 		results = sum(obj);
-		this.props.dispatch(actions.score(results));
-		// Process results
-		this.result(results);
+		dispatch(actions.score(results));
+		// Process player hit results
+		this.playerHit(results);
+		// Process dealer hit results
+		this.dealerHit(results);
 	}
 
 	deal(playerCards,dealerCards) {
@@ -58,15 +63,21 @@ class Card extends Component {
 		}
 	}
 
-	result(results) {
+	playerHit(results) {
+		// Check to see if it is a player card
+		if (this.props.type === 'player' && this.props.playerCards.length > 2) {
+			// If player goes over 21, end allow the dealer to hit
+			if (results.sum > 21) this.props.dispatch(actions.hitNstay('dealer',random()));
+		}
+	}
+
+	dealerHit(results) {
 		// Check to see if dealer should hit again
 		if (this.props.dealer === true) {
 			// Add another dealer card until dealer is over 17
 			if (results.sum < 17) this.props.dispatch(actions.addCard('dealer',random()));
 			// Else end the round
 			else {
-				// COME BACK AND FIX THIS SECTION
-				//console.log(calWin(this.props.playerScore,this.props.dealerScore));
 				this.props.dispatch(actions.roundEnd());
 			}
 		}

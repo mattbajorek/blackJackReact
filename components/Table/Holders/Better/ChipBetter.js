@@ -24,6 +24,7 @@ class ChipBetter extends Component {
 		let winner = this.state.winner;
 		let animatedChip = ReactDOM.findDOMNode(this.refs.chipAnimation);
 		animatedChip.addEventListener('webkitAnimationEnd', function() {
+			// Animate chip in toggle
 			dispatch(actions.animateChipIn());
 		});
 	}
@@ -56,7 +57,7 @@ class ChipBetter extends Component {
 		let className;
 		let winner = this.state.winner;
 
-		if (this.props.animate === true && winner === null) {
+		if (this.props.animateChip === true && winner === null) {
 			className = "chip-absolute animation-chip-in";
 		} else if (winner === 'player' || winner === 'tie') {
 			className = "chip-absolute-out animation-chip-player";

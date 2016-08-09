@@ -57,12 +57,12 @@ export default function reducer(state, action) {
 					state.betAmounts[action.index]+1,
 					...state.betAmounts.slice(action.index + 1)
 				],
-				animate: !state.animate
+				animateChip: !state.animateChip
 			});
 
 		case 'ANIMATE CHIP IN':
 			return Object.assign({}, state, {
-				animate: !state.animate
+				animateChip: !state.animateChip
 			});
 
 		case 'CLEAR BET':
@@ -82,13 +82,20 @@ export default function reducer(state, action) {
 		case 'ADD CARD':
 			if (action.user === 'player') {
 				return Object.assign({}, state, {
-					playerCards: state.playerCards.concat(action.card)
+					playerCards: state.playerCards.concat(action.card),
+					animateCard: !state.animateCard
 				});
 			} else {
 				return Object.assign({}, state, {
-					dealerCards: state.dealerCards.concat(action.card)
+					dealerCards: state.dealerCards.concat(action.card),
+					animateCard: !state.animateCard
 				});
 			}
+
+		case 'ANIMATE CARD IN':
+			return Object.assign({}, state, {
+				animateCard: !state.animateCard
+			});
 
 		case 'SCORE':
 			if (action.user === 'player') {
@@ -121,7 +128,9 @@ export default function reducer(state, action) {
 			// Else just toggle hit and stay buttons
 			} else {
 				return Object.assign({}, state, {
-					hitNstay: !state.hitNstay
+					hitNstay: !state.hitNstay,
+					// Second dealer card needs to turn the animation off afterwards
+					animateCard: !state.animateCard
 				});
 			}
 
@@ -129,7 +138,7 @@ export default function reducer(state, action) {
 			return Object.assign({}, state, {
 				roundEnd: !state.roundEnd,
 				lastChip: {},
-				//animate: !state.animate
+				animateCard: !state.animateCard
 			});
 
 		case 'RESULT':
@@ -190,7 +199,7 @@ export default function reducer(state, action) {
 			return Object.assign({}, state, {
 				message: action.message,
 				// Animate offsets the animate from the chip animation
-				animate: !state.animate
+				animateChip: !state.animateChip
 			});
 
 		default:

@@ -18,7 +18,7 @@ class Better extends Component {
 						<ChipBetter
 							chip={this.props.currentChip}
 							dispatch={this.props.dispatch}
-							animate={this.props.animate}
+							animateChip={this.props.animateChip}
 							toAnimate={'chipAnimation'}
 							playerScore={this.props.playerScore}
 							dealerScore={this.props.dealerScore}

@@ -43,6 +43,11 @@ export default {
 			card: card
 		}
 	},
+	animateCardIn: function() {
+		return {
+			type: 'ANIMATE CARD IN'
+		}
+	},
 	hitNstay: function(user,card) {
 		return {
 			type: 'HIT AND STAY',
