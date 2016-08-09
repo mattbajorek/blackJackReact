@@ -188,7 +188,9 @@ export default function reducer(state, action) {
 
 		case 'MESSAGE':
 			return Object.assign({}, state, {
-				message: action.message
+				message: action.message,
+				// Animate offsets the animate from the chip animation
+				animate: !state.animate
 			});
 
 		default:

@@ -10,7 +10,8 @@ class ChipBetter extends Component {
 	constructor() {
     super();
     this.state = {
-      winner: null
+      winner: null,
+      ran: false
     };
   }
 
@@ -20,6 +21,7 @@ class ChipBetter extends Component {
 
 	animation() {
 		let dispatch = this.props.dispatch;
+		let winner = this.state.winner;
 		let animatedChip = ReactDOM.findDOMNode(this.refs.chipAnimation);
 		animatedChip.addEventListener('webkitAnimationEnd', function() {
 			dispatch(actions.animateChipIn());
@@ -27,16 +29,17 @@ class ChipBetter extends Component {
 	}
 
 	// Check for round end to calculate scores and 
-	componentWillReceiveProps(newProps) {    
-    if (newProps.roundEnd === true) {
+	componentWillReceiveProps(newProps) {
+    if (newProps.roundEnd === true && this.state.ran === false) {
     	let player = newProps.playerScore;
     	let dealer = newProps.dealerScore;
     	// Send scores to calculate winner
     	let results = calWin(player,dealer);
-    	console.log(results)
     	// Set the winner state to animate proper chip out direction
+    	// Increment state so this logic won't be called again
     	this.setState({
-    		winner: results.winner
+    		winner: results.winner,
+    		ran: true
     	});
     	// Show message
     	let dispatch = this.props.dispatch;
