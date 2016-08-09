@@ -7,9 +7,7 @@ function getRandomInt(min, max) {
 
 module.exports = function() {
 	return {
-		number: numbers[0],
+		number: numbers[getRandomInt(0,12)],
 		symbol: symbols[getRandomInt(0,3)]
 	}
 }
-
-// getRandomInt(0,12)
