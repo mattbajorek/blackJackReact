@@ -22,6 +22,7 @@ class Dealer extends Component {
 						return <Card
 							key={i}
 							index={i}
+							roundEnd={this.props.roundEnd}
 							dispatch={dispatch}
 							card={x}
 							type='dealer'
