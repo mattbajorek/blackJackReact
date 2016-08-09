@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { formatMoney } from 'accounting';
 import './Better.scss';
-import ChipBetter from './ChipBetter.js';
+import ChipBetter from './ChipBetter';
 
 class Better extends Component {
 
@@ -20,7 +20,9 @@ class Better extends Component {
 							dispatch={this.props.dispatch}
 							animate={this.props.animate}
 							toAnimate={'chipAnimation'}
-							winner={this.props.winner} />}
+							playerScore={this.props.playerScore}
+							dealerScore={this.props.dealerScore}
+							roundEnd={this.props.roundEnd} />}
 				</div>
 			</div>
 		)

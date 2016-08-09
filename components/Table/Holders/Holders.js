@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './Holders.scss';
-import Dealer from './Dealer/Dealer.js';
-import Chips from './Chips/Chips.js';
-import Better from './Better/Better.js';
-import Player from './Player/Player.js';
-import Buttons from './Buttons/Buttons.js';
+import Dealer from './Dealer/Dealer';
+import Chips from './Chips/Chips';
+import Better from './Better/Better';
+import Player from './Player/Player';
+import Buttons from './Buttons/Buttons';
 
 class Holders extends Component {
 
@@ -29,7 +29,9 @@ class Holders extends Component {
 					currentChip={this.props.currentChip}
 					animate={this.props.animate}
 					bet={this.props.bet}
-					winner={this.props.winner} />
+					playerScore={this.props.playerScore}
+					dealerScore={this.props.dealerScore}
+					roundEnd={this.props.roundEnd} />
 				<Player
 					dispatch={this.props.dispatch}
 					playerCards={this.props.playerCards} />

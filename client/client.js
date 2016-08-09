@@ -20,7 +20,8 @@ let initialState = {
 	playerScore: null,
 	dealerScore: null,
 	dealer: false,
-	roundEnd: false
+	roundEnd: false,
+	message: null
 };
 
 let store = configureStore(initialState);

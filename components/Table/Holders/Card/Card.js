@@ -6,7 +6,9 @@ import Face from './Modifiers/Face';
 import posNum from './Modifiers/Positions/posNum';
 import selector from './Modifiers/Positions/symbol';
 import actions from '../../../../redux/actions';
-import random from '../random.js';
+import random from '../random';
+import calWin from './calWin';
+import sum from './sum'
 
 class Card extends Component {
 
@@ -23,25 +25,26 @@ class Card extends Component {
 	}
 
 	animationCallback() {
-		let result = this.result;
-		let dispatch = this.props.dispatch;
 		let playerCards = this.props.playerCards;
 		let dealerCards = this.props.dealerCards;
-		let dealer = this.props.dealer;
+		let results = this.props.results;
 		// Deal out cards
 		this.deal(playerCards,dealerCards);
-		// Calculate sum and sends function results as a callback
-		let obj = {
-			player: playerCards,
-			dealer: dealerCards
-		}
-		this.sum(obj,this.result.bind(this));
+		// Calculate sum with imported sum function
+		let obj = {};
+		if (this.props.type === 'player') obj.player = playerCards;
+		else obj.dealer = dealerCards;
+		// Dispatch results
+		results = sum(obj);
+		this.props.dispatch(actions.score(results));
+		// Process results
+		this.result(results);
 	}
 
 	deal(playerCards,dealerCards) {
 		let dispatch = this.props.dispatch;
 		// Check to see if it is a player card
-		if (playerCards !== undefined) {
+		if (this.props.type === 'player') {
 			// Add another player card
 			if (playerCards.length === 1) dispatch(actions.addCard('player',random()));
 			// Add another dealer card
@@ -55,43 +58,17 @@ class Card extends Component {
 		}
 	}
 
-	sum(cards,callback) {
-		let dispatch = this.props.dispatch;
-		// Check for both player and dealer	
-		for (let user in cards) {
-			if (cards[user] !== undefined) {
-				let sum = 0;
-				// Loop through each card
-				cards[user].map(x => {
-					switch(x.number) {
-						case 'A':
-							if (sum < 11) sum += 11
-							else sum += 1
-							break;
-						case 'J':
-						case 'Q':
-						case 'K':
-							sum += 10;
-							break;
-						default:
-							sum += Number(x.number);
-					}
-				});
-				// Update state of score
-				dispatch(actions.score(user, sum))
-				// Get results
-				callback(user,sum);
-			}
-		}		
-	}
-
-	result(user,sum) {
+	result(results) {
 		// Check to see if dealer should hit again
 		if (this.props.dealer === true) {
 			// Add another dealer card until dealer is over 17
-			if (sum < 17) this.props.dispatch(actions.addCard('dealer',random()));
+			if (results.sum < 17) this.props.dispatch(actions.addCard('dealer',random()));
 			// Else end the round
-			else this.props.dispatch(actions.roundEnd());
+			else {
+				// COME BACK AND FIX THIS SECTION
+				//console.log(calWin(this.props.playerScore,this.props.dealerScore));
+				this.props.dispatch(actions.roundEnd());
+			}
 		}
 	}
 

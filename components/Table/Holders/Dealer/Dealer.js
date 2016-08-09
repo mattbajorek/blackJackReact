@@ -23,6 +23,7 @@ class Dealer extends Component {
 							key={i}
 							dispatch={dispatch}
 							card={x}
+							type='dealer'
 							style={style[i]} 
 							dealerCards={cards}
 							dealer={dealer} />;

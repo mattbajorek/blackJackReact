@@ -129,7 +129,7 @@ export default function reducer(state, action) {
 			return Object.assign({}, state, {
 				roundEnd: !state.roundEnd,
 				lastChip: {},
-				animate: !state.animate
+				//animate: !state.animate
 			});
 
 		case 'RESULT':
@@ -146,7 +146,8 @@ export default function reducer(state, action) {
 					playerScore: null,
 					dealerScore: null,
 					dealer: false,
-					roundEnd: false
+					roundEnd: false,
+					message: null
 				});
 			} else if (action.winner === 'player' && action.multiply !== undefined) {
 				return Object.assign({}, state, {
@@ -163,7 +164,8 @@ export default function reducer(state, action) {
 					playerScore: null,
 					dealerScore: null,
 					dealer: false,
-					roundEnd: false
+					roundEnd: false,
+					message: null
 				});
 			}
 			return Object.assign({}, state, {
@@ -180,7 +182,13 @@ export default function reducer(state, action) {
 				playerScore: null,
 				dealerScore: null,
 				dealer: false,
-				roundEnd: false
+				roundEnd: false,
+				message: null
+			});
+
+		case 'MESSAGE':
+			return Object.assign({}, state, {
+				message: action.message
 			});
 
 		default:

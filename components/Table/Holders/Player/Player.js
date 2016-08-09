@@ -23,6 +23,7 @@ class Player extends Component {
 							key={i}
 							dispatch={dispatch}
 							card={x}
+							type='player'
 							style={style[i]} 
 							playerCards={cards}
 							dealer={dealer} />;

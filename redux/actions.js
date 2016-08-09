@@ -50,12 +50,12 @@ export default {
 			card: card
 		}
 	},
-	score: function(user,sum) {
+	score: function(obj) {
 		return {
 			type: 'SCORE',
-			user: user,
-			sum: sum
-		}
+			user: obj.user,
+			sum: obj.sum
+		}		
 	},
 	clearBet: function() {
 		return {
@@ -72,6 +72,12 @@ export default {
 			type: 'RESULT',
 			winner: winner,
 			multiply: multiply
+		}
+	},
+	message: function(message) {
+		return {
+			type: 'MESSAGE',
+			message: message
 		}
 	}
 };
