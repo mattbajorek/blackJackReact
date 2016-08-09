@@ -21,6 +21,7 @@ class Dealer extends Component {
 					{cards.map((x,i) => {
 						return <Card
 							key={i}
+							index={i}
 							dispatch={dispatch}
 							card={x}
 							type='dealer'

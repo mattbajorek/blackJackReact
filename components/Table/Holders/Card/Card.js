@@ -52,11 +52,11 @@ class Card extends Component {
 		if (this.props.type === 'player') {
 			// Add another player card
 			if (playerCards.length === 1) dispatch(actions.addCard('player',random()));
-			// Add another dealer card
+			// Add first dealer card
 			else if (playerCards.length === 2) dispatch(actions.addCard('dealer',random()));
 		// Check to see if it is a dealer card
 		} else {
-			// Add another dealer card
+			// Add second dealer card
 			if (dealerCards.length === 1) dispatch(actions.addCard('dealer',random()));
 			// Allow user to hit or stay
 			else if (dealerCards.length === 2) dispatch(actions.hitNstay());
@@ -96,6 +96,20 @@ class Card extends Component {
 			posNum(style,'0.8%');
 		} else if (number === 'J') {
 			posNum(style,'5.2%');
+		}
+
+		let backStyle = {
+			height: '100%',
+			width: '100%',
+			borderRadius: '5%'
+		}
+
+		if (this.props.index === 0) {
+			return (
+				<div ref="cardAnimation" className={"card animation-card"} style={this.props.style}>
+					<img src={require('../../../../images/back.png')} style={backStyle} />
+				</div>
+			)
 		}
 
 		return (
