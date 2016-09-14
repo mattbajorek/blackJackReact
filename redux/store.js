@@ -1,11 +1,12 @@
-import { applyMiddleware, compose, createStore } from 'redux';
+// import { applyMiddleware, compose, createStore } from 'redux';
+import { createStore } from 'redux';
 import reducers from './reducers';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 
 // add middleware
-let finalCreateStore = compose(
-	applyMiddleware(logger())
-)(createStore);
+// let finalCreateStore = compose(
+// 	applyMiddleware(logger())
+// )(createStore);
 
 let initialState = {
 	total: null,

@@ -125,7 +125,8 @@ export default function reducer(state, action) {
 					return Object.assign({}, state, {
 						roundEnd: !state.roundEnd,
 						hitNstay: !state.hitNstay,
-						showCard: !showCard
+						showCard: !state.showCard,
+						animateCard: !state.animateCard
 					});
 				}
 			// Else just toggle hit and stay buttons
