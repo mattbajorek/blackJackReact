@@ -84,5 +84,10 @@ export default {
 			type: 'MESSAGE',
 			message: message
 		}
+	},
+	gameOver: function(message) {
+		return {
+			type: 'GAME OVER'
+		}
 	}
 };

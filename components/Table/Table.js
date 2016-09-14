@@ -8,6 +8,30 @@ import { connect } from 'react-redux';
 
 class Table extends Component {
 
+	constructor() {
+    super();
+    this.state = {
+      ran: false
+    };
+  }
+
+	componentWillReceiveProps(newProps) {
+		// Check to see if player has lost all the chips
+    if (newProps.total === 0 && newProps.bet === 0 && this.state.ran === false) {
+    	// Increment state so this logic won't be called again
+    	this.setState({
+    		ran: true
+    	});
+    	// Show message
+    	let dispatch = this.props.dispatch;
+    	dispatch(actions.message('Game Over!'));
+    	// Restart game
+      setTimeout(function() {
+        dispatch(actions.gameOver());
+      },3000);
+    }
+  }
+
 	render() {
 		return (
 			<div className="wrapper">

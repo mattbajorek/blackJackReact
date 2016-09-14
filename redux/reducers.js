@@ -19,6 +19,11 @@ function addChips(state, multiply) {
 	return state.amounts.map((x,i) => x + state.betAmounts[i]);
 }
 
+function startingChips(state) {
+	var amounts = [25,15,5,5,5];
+	return state.amounts.map((x,i) => amounts[i]);
+}
+
 export default function reducer(state, action) {
 	switch (action.type) {
 		/*case 'SELECT_NUM':
@@ -203,6 +208,27 @@ export default function reducer(state, action) {
 				// Animate offsets the animate from the chip and card animations
 				animateChip: !state.animateChip,
 				animateCard: !state.animateCard
+			});
+
+		case 'GAME OVER':
+			// Return to starting amounts
+			return Object.assign({}, state, {
+				animateCard: false,
+				animateChip: false,
+				amounts: startingChips(state),
+				bet: 0,
+				betAmounts: resetBet(state),
+				currentChip: {},
+				showCard: false,
+				playerCards: [],
+				dealerCards: [],
+				playerScore: null,
+				dealerScore: null,
+				dealer: false,
+				roundEnd: false,
+				message: null,
+				play: false,
+				total: null
 			});
 
 		default:
