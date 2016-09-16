@@ -35,7 +35,7 @@ Win | Game Over
 - JavaScript (native listeners for animation)
 - NodeJS (Express server)
 - React (Redux)
-- Webpack Dev Middleware with Hot Module Reloading
+- Webpack (Babel, Dev Middleware with Hot Module Reloading)
 
 ## How to Play
 
