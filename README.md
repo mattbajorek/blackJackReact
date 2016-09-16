@@ -31,7 +31,7 @@ Win | Game Over
 
 ## Technologies used
 - HTML (JSX)
-- CSS (SCSS, font-awesome, animations)
+- CSS (SASS, font-awesome, animations)
 - JavaScript (native listeners for animation)
 - NodeJS (Express server)
 - React (Redux)
