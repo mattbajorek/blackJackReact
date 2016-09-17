@@ -24,7 +24,7 @@ Win | Game Over
 ## User Story
 * User can select an initial money for betting amount
 * User can place desired amount to bet
-* User can clear bet if mistake is maken
+* User can clear bet if mistake is made
 * User can hit or stay
 * User can see results of round
 * User can play multiple rounds
